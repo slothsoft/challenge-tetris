@@ -9,9 +9,9 @@ import de.slothsoft.tetris.Block;
 import de.slothsoft.tetris.Board;
 import de.slothsoft.tetris.EventHandler;
 import de.slothsoft.tetris.Game.StonePositionerContext;
-import de.slothsoft.tetris.SingleColorBlock;
+import de.slothsoft.tetris.blocks.SingleColorBlock;
+import de.slothsoft.tetris.blocks.StoneForm;
 import de.slothsoft.tetris.Stone;
-import de.slothsoft.tetris.StoneForm;
 import de.slothsoft.tetris.StonePositioner;
 
 public class ExampleStonePositionerTest {
@@ -24,7 +24,7 @@ public class ExampleStonePositionerTest {
 
 	@Test
 	public void testPoleInTheHoleRight() {
-		Stone stone = new Stone(StoneForm.I);
+		Stone stone = new Stone(StoneForm.I.createBlocks());
 		this.board.setCurrentStone(stone);
 
 		Block block = new SingleColorBlock(Color.BLACK);
@@ -42,7 +42,7 @@ public class ExampleStonePositionerTest {
 
 	@Test
 	public void testPoleInTheHoleLeft() {
-		Stone stone = new Stone(StoneForm.I);
+		Stone stone = new Stone(StoneForm.I.createBlocks());
 		this.board.setCurrentStone(stone);
 
 		Block block = new SingleColorBlock(Color.BLACK);
@@ -60,7 +60,7 @@ public class ExampleStonePositionerTest {
 
 	@Test
 	public void testPoleInTheHoleMiddle() {
-		Stone stone = new Stone(StoneForm.I);
+		Stone stone = new Stone(StoneForm.I.createBlocks());
 		this.board.setCurrentStone(stone);
 
 		Block block = new SingleColorBlock(Color.BLACK);

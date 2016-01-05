@@ -53,6 +53,11 @@ public class Game {
 		return this.timePerStone;
 	}
 
+	public Game timePerStone(int newTimePerStone) {
+		setTimePerStone(newTimePerStone);
+		return this;
+	}
+
 	public void setTimePerStone(int waitTime) {
 		this.timePerStone = waitTime;
 		this.sleepTime = this.timePerStone / Board.WIDTH_IN_BLOCKS;
@@ -60,6 +65,11 @@ public class Game {
 
 	public Consumer<Score> getOnGameFinish() {
 		return this.eventHandler.getOnGameFinish();
+	}
+
+	public Game onGameFinish(Consumer<Score> onGameFinish) {
+		setOnGameFinish(onGameFinish);
+		return this;
 	}
 
 	public void setOnGameFinish(Consumer<Score> onGameFinish) {
@@ -81,6 +91,19 @@ public class Game {
 
 	public void setStonePositioner(StonePositioner stonePositioner) {
 		this.stonePositioner = Objects.requireNonNull(stonePositioner);
+	}
+
+	public StoneFactory getStoneFactory() {
+		return this.eventHandler.getStoneFactory();
+	}
+
+	public Game stoneFactory(StoneFactory newStoneFactory) {
+		setStoneFactory(newStoneFactory);
+		return this;
+	}
+
+	public void setStoneFactory(StoneFactory stoneFactory) {
+		this.eventHandler.setStoneFactory(stoneFactory);
 	}
 
 	public Score getScore() {

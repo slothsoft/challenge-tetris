@@ -61,9 +61,8 @@ public class TetrisBatch {
 		for (int i = 0; i < this.threads; i++) {
 			try {
 				Game game = new Game();
-				game.setStonePositioner(this.positioner.getClass().newInstance());
-				game.setTimePerStone(0);
-				game.setOnGameFinish(score -> roundFinished(game, score));
+				game.stonePositioner(this.positioner.getClass().newInstance());
+				game.timePerStone(0).onGameFinish(score -> roundFinished(game, score));
 				game.start();
 			} catch (Exception e) {
 				throw new RuntimeException(e);

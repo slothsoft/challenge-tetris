@@ -1,14 +1,23 @@
 package de.slothsoft.tetris;
 
-public final class Score extends Bean implements Cloneable {
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
+public final class Score implements Cloneable {
 
 	public static final String PROP_STONE_COUNT = "stoneCount";
 	public static final String PROP_LINES_REMOVED = "linesRemoved";
 	public static final String PROP_SCORE = "score";
 
+	private PropertyChangeSupport propertyChangeSupport;
+
 	private long stoneCount;
 	private long linesRemoved;
 	private long score;
+
+	public Score() {
+		this.propertyChangeSupport = new PropertyChangeSupport(this);
+	}
 
 	public long getStoneCount() {
 		return this.stoneCount;
@@ -73,6 +82,14 @@ public final class Score extends Bean implements Cloneable {
 		if (verbos) return "Score: \n\tstoneCount\t= " + this.stoneCount + "\n\tlinesRemoved\t= " + this.linesRemoved
 				+ "\n\tscore\t\t= " + this.score;
 		return "Scoret=" + this.stoneCount + ", linesRemoved=" + this.linesRemoved + ", score=" + this.score + "]";
+	}
+
+	public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+		this.propertyChangeSupport.addPropertyChangeListener(propertyName, listener);
+	}
+
+	public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+		this.propertyChangeSupport.removePropertyChangeListener(propertyName, listener);
 	}
 
 }

@@ -78,7 +78,6 @@ public interface TetrisRenderer {
 				if (block != null) {
 					graphics.translate(xi * Block.WIDTH, yi * Block.HEIGHT);
 					paintBlock(graphics, block);
-					block.paint(graphics);
 					graphics.translate(-xi * Block.WIDTH, -yi * Block.HEIGHT);
 				}
 			}
@@ -95,7 +94,7 @@ public interface TetrisRenderer {
 	 */
 
 	default void paintBlock(Graphics2D graphics, Block block) {
-
+		block.paint(graphics);
 	}
 
 }

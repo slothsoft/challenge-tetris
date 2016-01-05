@@ -6,6 +6,7 @@ import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.Arrays;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -18,8 +19,10 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.border.TitledBorder;
 
 import de.slothsoft.tetris.Game;
+import de.slothsoft.tetris.StoneFactory;
 import de.slothsoft.tetris.StonePositioner;
 import de.slothsoft.tetris.StonePositioners;
+import de.slothsoft.tetris.blocks.DefaultStoneFactory;
 
 public class SettingsPanel extends JPanel {
 
@@ -63,7 +66,7 @@ public class SettingsPanel extends JPanel {
 		JComboBox<StonePositioner> stonePositioner = new JComboBox<>();
 		stonePositioner.setModel(new DefaultComboBoxModel<StonePositioner>(new Vector<>(StonePositioners
 				.getStonePositioners())));
-		stonePositioner.setRenderer(new StonePositionerListCellRenderer());
+		stonePositioner.setRenderer(new DisplayableListCellRenderer<StonePositioner>(p -> p.getDisplayName()));
 		stonePositioner.addActionListener(e -> this.game.setStonePositioner((StonePositioner) stonePositioner
 				.getSelectedItem()));
 		stonePositioner.setSelectedItem(this.game.getStonePositioner());
@@ -76,9 +79,21 @@ public class SettingsPanel extends JPanel {
 		waitTime.setModel(new SpinnerNumberModel(this.game.getTimePerStone(), 0, 10000, 100));
 		waitTime.addChangeListener(e -> this.game.setTimePerStone(((Integer) waitTime.getValue())));
 
-		parent.add(createLabel("Time"), createLabelConstraints(0, y));
+		parent.add(createLabel("Delay"), createLabelConstraints(0, y));
 		parent.add(waitTime, createControlConstraints(1, y));
 		y++;
+
+		JComboBox<StoneFactory> stoneFactory = new JComboBox<>();
+		stoneFactory.setModel(new DefaultComboBoxModel<StoneFactory>(new Vector<>(Arrays.asList(DefaultStoneFactory
+				.values()))));
+		stoneFactory.setRenderer(new DisplayableListCellRenderer<StoneFactory>(f -> f.getDisplayName()));
+		stoneFactory.addActionListener(e -> this.game.setStoneFactory((StoneFactory) stoneFactory.getSelectedItem()));
+		stoneFactory.setSelectedItem(this.game.getStoneFactory());
+
+		parent.add(createLabel("Stones"), createLabelConstraints(0, y));
+		parent.add(stoneFactory, createControlConstraints(1, y));
+		y++;
+
 		parent.add(new JLabel(), new GridBagConstraints(1, y, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, INSETS, 0, 0));
 

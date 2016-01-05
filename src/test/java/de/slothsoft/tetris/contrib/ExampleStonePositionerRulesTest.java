@@ -7,9 +7,9 @@ import org.junit.Test;
 
 import de.slothsoft.tetris.Block;
 import de.slothsoft.tetris.Board;
-import de.slothsoft.tetris.SingleColorBlock;
 import de.slothsoft.tetris.Stone;
-import de.slothsoft.tetris.StoneForm;
+import de.slothsoft.tetris.blocks.SingleColorBlock;
+import de.slothsoft.tetris.blocks.StoneForm;
 
 /**
  * This class tests the rule methods (which are added with varying ratio to a total score)
@@ -41,17 +41,19 @@ public class ExampleStonePositionerRulesTest {
 	@Test
 	public void testMinusPointsForXLeft() {
 		this.positioner.setWantsPoleOnTheRight(false);
-		Assert.assertEquals(-1, this.positioner.getPointsForX(new Stone(StoneForm.O), 0));
-		Assert.assertEquals(0, this.positioner.getPointsForX(new Stone(StoneForm.O), 4));
-		Assert.assertEquals(0, this.positioner.getPointsForX(new Stone(StoneForm.O), Board.WIDTH_IN_BLOCKS - 2));
+		Assert.assertEquals(-1, this.positioner.getPointsForX(new Stone(StoneForm.O.createBlocks()), 0));
+		Assert.assertEquals(0, this.positioner.getPointsForX(new Stone(StoneForm.O.createBlocks()), 4));
+		Assert.assertEquals(0,
+				this.positioner.getPointsForX(new Stone(StoneForm.O.createBlocks()), Board.WIDTH_IN_BLOCKS - 2));
 	}
 
 	@Test
 	public void testMinusPointsForXRight() {
 		this.positioner.setWantsPoleOnTheRight(true);
-		Assert.assertEquals(0, this.positioner.getPointsForX(new Stone(StoneForm.O), 0));
-		Assert.assertEquals(0, this.positioner.getPointsForX(new Stone(StoneForm.O), 4));
-		Assert.assertEquals(-1, this.positioner.getPointsForX(new Stone(StoneForm.O), Board.WIDTH_IN_BLOCKS - 2));
+		Assert.assertEquals(0, this.positioner.getPointsForX(new Stone(StoneForm.O.createBlocks()), 0));
+		Assert.assertEquals(0, this.positioner.getPointsForX(new Stone(StoneForm.O.createBlocks()), 4));
+		Assert.assertEquals(-1,
+				this.positioner.getPointsForX(new Stone(StoneForm.O.createBlocks()), Board.WIDTH_IN_BLOCKS - 2));
 	}
 
 	@Test

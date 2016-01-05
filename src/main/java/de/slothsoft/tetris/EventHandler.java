@@ -2,7 +2,8 @@ package de.slothsoft.tetris;
 
 import java.util.Objects;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
+
+import de.slothsoft.tetris.blocks.DefaultStoneFactory;
 
 public final class EventHandler {
 
@@ -15,8 +16,7 @@ public final class EventHandler {
 	private final ClonkChecker clonkChecker;
 	private final CompleteLineUpdater completeLineUpdater = new CompleteLineUpdater();
 
-	private float tempX;
-	private Supplier<Stone> stoneFactory = StoneForm::createRandomStone;
+	private StoneFactory stoneFactory = DefaultStoneFactory.DEFAULT;
 	private Consumer<Score> onGameFinish = i -> System.out.println("Game Over! Score: " + i.getScore());
 
 	public EventHandler(Board board) {
@@ -32,22 +32,14 @@ public final class EventHandler {
 	}
 
 	public void requestMoveRight() {
-		this.tempX += 1;
-		while (this.tempX >= 1) {
-			if (this.collisionChecker.canMoveRight(this.board.getCurrentStone())) {
-				this.board.getCurrentStone().incrementXInBlocks(1);
-			}
-			this.tempX -= 1;
+		if (this.collisionChecker.canMoveRight(this.board.getCurrentStone())) {
+			this.board.getCurrentStone().incrementXInBlocks(1);
 		}
 	}
 
 	public void requestMoveLeft() {
-		this.tempX -= 1;
-		while (this.tempX <= -1) {
-			if (this.collisionChecker.canMoveLeft(this.board.getCurrentStone())) {
-				this.board.getCurrentStone().incrementXInBlocks(-1);
-			}
-			this.tempX += 1;
+		if (this.collisionChecker.canMoveLeft(this.board.getCurrentStone())) {
+			this.board.getCurrentStone().incrementXInBlocks(-1);
 		}
 	}
 
@@ -59,7 +51,11 @@ public final class EventHandler {
 	}
 
 	public void prepareNewStone() {
-		prepareStone(this.stoneFactory.get());
+		prepareStone(createRandomStone());
+	}
+
+	private Stone createRandomStone() {
+		return this.stoneFactory.createRandomStone();
 	}
 
 	public void prepareStone(Stone newStone) {
@@ -127,16 +123,16 @@ public final class EventHandler {
 		this.onGameFinish = Objects.requireNonNull(onGameFinish);
 	}
 
-	public Supplier<Stone> getStoneFactory() {
+	public StoneFactory getStoneFactory() {
 		return this.stoneFactory;
 	}
 
-	public EventHandler stoneFactory(Supplier<Stone> newStoneFactory) {
+	public EventHandler stoneFactory(StoneFactory newStoneFactory) {
 		setStoneFactory(newStoneFactory);
 		return this;
 	}
 
-	public void setStoneFactory(Supplier<Stone> stoneFactory) {
+	public void setStoneFactory(StoneFactory stoneFactory) {
 		this.stoneFactory = Objects.requireNonNull(stoneFactory);
 	}
 

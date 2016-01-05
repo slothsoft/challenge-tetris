@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import de.slothsoft.tetris.Game.StonePositionerContext;
 import de.slothsoft.tetris.PositionBasedStonePositioner.Position;
+import de.slothsoft.tetris.blocks.StoneForm;
 
 public class PositionBasedStonePositionerTest {
 

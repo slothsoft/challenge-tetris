@@ -5,6 +5,8 @@ import java.awt.Color;
 import org.junit.Assert;
 import org.junit.Test;
 
+import de.slothsoft.tetris.blocks.SingleColorBlock;
+
 public class CollisionCheckerTest {
 
 	private final Board board = new Board();

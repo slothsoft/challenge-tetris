@@ -13,10 +13,6 @@ public final class Stone extends BlockArray {
 	private int xInBlocks;
 	private double yInBlocks;
 
-	public Stone(StoneForm stoneForm) {
-		this(stoneForm.createBlocks());
-	}
-
 	public Stone(Block[][] blocks) {
 		super(blocks);
 	}

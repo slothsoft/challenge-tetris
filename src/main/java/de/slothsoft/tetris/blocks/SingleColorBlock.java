@@ -1,10 +1,11 @@
-package de.slothsoft.tetris;
+package de.slothsoft.tetris.blocks;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.Shape;
-import java.io.Serializable;
+
+import de.slothsoft.tetris.Block;
 
 /**
  * These blocks are pretty similar to the default tetris blocks:
@@ -21,9 +22,7 @@ import java.io.Serializable;
  * </pre>
  */
 
-public final class SingleColorBlock implements Serializable, Block {
-
-	private static final long serialVersionUID = -190284102481272481L;
+public final class SingleColorBlock implements Block {
 
 	private static final Shape LIGHT_TRIANGLE = new Polygon(new int[] { 0, WIDTH, 0 }, new int[] { 0, 0, HEIGHT }, 3);
 	private static final Shape DARK_TRIANGLE = new Polygon(new int[] { 0, WIDTH, WIDTH },

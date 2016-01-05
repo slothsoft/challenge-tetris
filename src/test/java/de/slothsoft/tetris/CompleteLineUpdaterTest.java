@@ -7,6 +7,8 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+import de.slothsoft.tetris.blocks.SingleColorBlock;
+
 public class CompleteLineUpdaterTest {
 
 	private final CompleteLineUpdater updater = new CompleteLineUpdater();

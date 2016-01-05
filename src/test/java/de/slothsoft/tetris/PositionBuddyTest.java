@@ -4,17 +4,16 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import de.slothsoft.tetris.PositionBasedStonePositioner.Position;
+import de.slothsoft.tetris.blocks.StoneForm;
 
 public class PositionBuddyTest {
 
-	private final Stone incomingStone = new Stone(StoneForm.O);
+	private final Stone incomingStone = new Stone(StoneForm.O.createBlocks());
 
 	@Test
 	public void test() {
 		PositionBuddy buddy = new PositionBuddy((stone, targetX) -> {
-			if (this.incomingStone == stone && targetX == 7) {
-				return 1;
-			}
+			if (this.incomingStone == stone && targetX == 7) return 1;
 			return 0;
 		});
 
