@@ -10,9 +10,9 @@ public class BlockArrayTest {
 	@Test
 	public void testCalculateBlockCountOfLine() throws Exception {
 		BlockArray array = new BlockArray(2, 3);
-		array.setBlock(0, 1, new Block(Color.RED));
-		array.setBlock(0, 2, new Block(Color.RED));
-		array.setBlock(1, 2, new Block(Color.RED));
+		array.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		array.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		array.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(0, array.calculateBlockCountOfLine(0));
 		Assert.assertEquals(1, array.calculateBlockCountOfLine(1));
@@ -22,9 +22,9 @@ public class BlockArrayTest {
 	@Test
 	public void testCalculateBlockCountOfColumn() throws Exception {
 		BlockArray array = new BlockArray(3, 2);
-		array.setBlock(1, 0, new Block(Color.RED));
-		array.setBlock(2, 0, new Block(Color.RED));
-		array.setBlock(2, 1, new Block(Color.RED));
+		array.setBlock(1, 0, new SingleColorBlock(Color.RED));
+		array.setBlock(2, 0, new SingleColorBlock(Color.RED));
+		array.setBlock(2, 1, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(0, array.calculateBlockCountOfColumn(0));
 		Assert.assertEquals(1, array.calculateBlockCountOfColumn(1));
@@ -50,9 +50,9 @@ public class BlockArrayTest {
 	@Test
 	public void testClone() throws Exception {
 		BlockArray array = new BlockArray(2, 3);
-		array.setBlock(0, 1, new Block(Color.RED));
-		array.setBlock(0, 2, new Block(Color.RED));
-		array.setBlock(1, 2, new Block(Color.RED));
+		array.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		array.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		array.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		BlockArray clone = array.clone();
 

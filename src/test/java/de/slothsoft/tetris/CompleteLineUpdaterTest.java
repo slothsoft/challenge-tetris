@@ -14,7 +14,7 @@ public class CompleteLineUpdaterTest {
 	@Test
 	public void test() {
 		Board board = new Board();
-		Block block = new Block(Color.RED);
+		Block block = new SingleColorBlock(Color.RED);
 		Block[][] blocks = board.getBlocks();
 		for (int x = 0; x < blocks.length; x++) {
 			for (int y = 0; y < blocks[x].length; y++) {
@@ -35,8 +35,8 @@ public class CompleteLineUpdaterTest {
 	@Test
 	public void testLinesToBeRemoved() {
 		Board board = new Board();
-		Block block = new Block(Color.RED);
-		Block[][] blocks = board.getBlocks();
+		Block block = new SingleColorBlock(Color.RED);
+		de.slothsoft.tetris.Block[][] blocks = board.getBlocks();
 
 		for (int x = 0; x < blocks.length; x++) {
 			board.setBlock(x, 7, block);
@@ -49,8 +49,8 @@ public class CompleteLineUpdaterTest {
 	@Test
 	public void testShouldLineBeRemoved() {
 		Board board = new Board();
-		Block block = new Block(Color.RED);
-		Block[][] blocks = board.getBlocks();
+		Block block = new SingleColorBlock(Color.RED);
+		de.slothsoft.tetris.Block[][] blocks = board.getBlocks();
 
 		for (int x = 0; x < blocks.length; x++) {
 			board.setBlock(x, 7, block);
@@ -64,8 +64,8 @@ public class CompleteLineUpdaterTest {
 	@Test
 	public void testRemoveLine() {
 		Board board = new Board();
-		Block block = new Block(Color.RED);
-		Block[][] blocks = board.getBlocks();
+		Block block = new SingleColorBlock(Color.RED);
+		de.slothsoft.tetris.Block[][] blocks = board.getBlocks();
 
 		for (int x = 0; x < blocks.length; x++) {
 			board.setBlock(x, 7, block);
@@ -84,8 +84,8 @@ public class CompleteLineUpdaterTest {
 	@Test
 	public void testOnLinesRemoved() {
 		Board board = new Board();
-		Block block = new Block(Color.RED);
-		Block[][] blocks = board.getBlocks();
+		Block block = new SingleColorBlock(Color.RED);
+		de.slothsoft.tetris.Block[][] blocks = board.getBlocks();
 
 		for (int x = 0; x < blocks.length; x++) {
 			board.setBlock(x, 7, block);

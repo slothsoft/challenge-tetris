@@ -15,7 +15,7 @@ public class TetrisFrame extends JFrame {
 
 	private final Game game = new Game().stonePositioner(Tetris.POSITIONER);
 	private final SettingsPanel settingsPanel = new SettingsPanel(this.game);
-	private final BlockArrayPanel gamePanel = new BlockArrayPanel(this.game.getBoard());
+	private final BoardPanel gamePanel = new BoardPanel(this.game.getBoard());
 
 	public TetrisFrame() {
 		setTitle("Tetris");

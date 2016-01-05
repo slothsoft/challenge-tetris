@@ -1,8 +1,5 @@
 package de.slothsoft.tetris;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics2D;
 
 /**
  * A board is where the entire action plays out
@@ -20,27 +17,6 @@ public final class Board extends BlockArray {
 
 	public Board() {
 		super(WIDTH_IN_BLOCKS, HEIGHT_IN_BLOCKS);
-	}
-
-	@Override
-	public void paint(Graphics2D graphics) {
-		graphics.setStroke(new BasicStroke(BORDER_WIDTH));
-		graphics.setColor(Color.BLACK);
-		graphics.fillRect(-BORDER_WIDTH, -BORDER_WIDTH, WIDTH_IN_PIXELS + 2 * BORDER_WIDTH, HEIGHT_IN_PIXELS + 2
-				* BORDER_WIDTH);
-
-		graphics.setStroke(new BasicStroke());
-		graphics.setColor(Color.WHITE);
-		graphics.drawRect(-BORDER_WIDTH, -BORDER_WIDTH, WIDTH_IN_PIXELS + 2 * BORDER_WIDTH, HEIGHT_IN_PIXELS + 2
-				* BORDER_WIDTH);
-
-		super.paint(graphics);
-
-		if (this.currentStone != null) {
-			graphics.translate(this.currentStone.getXInPixels(), this.currentStone.getYInPixels());
-			this.currentStone.paint(graphics);
-			graphics.translate(-this.currentStone.getXInPixels(), -this.currentStone.getYInPixels());
-		}
 	}
 
 	/**

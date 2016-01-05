@@ -9,6 +9,14 @@ import de.slothsoft.tetris.PositionBuddy;
 import de.slothsoft.tetris.Stone;
 import de.slothsoft.tetris.StonePositionerUtil;
 
+/**
+ * This is the example stone positioner included in the basic Tetris code
+ *
+ * @author Slothsoft &lt;admin@slothsoft.de&gt;
+ * @since 2016-01-05
+ * @version 1.0.0
+ */
+
 public class ExampleStonePositioner extends AbstractStonePositioner implements PositionBasedStonePositioner {
 
 	private static final Random RANDOM = new Random(7L);

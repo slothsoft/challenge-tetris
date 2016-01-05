@@ -10,9 +10,9 @@ public class BoardTest {
 	@Test
 	public void testCalculateBlockCountOfLine() throws Exception {
 		Board board = new Board();
-		board.setBlock(0, 1, new Block(Color.RED));
-		board.setBlock(0, 2, new Block(Color.RED));
-		board.setBlock(1, 2, new Block(Color.RED));
+		board.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		board.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		board.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(0, board.calculateBlockCountOfLine(0));
 		Assert.assertEquals(1, board.calculateBlockCountOfLine(1));
@@ -22,9 +22,9 @@ public class BoardTest {
 	@Test
 	public void testCalculateBlockCountOfColumn() throws Exception {
 		Board board = new Board();
-		board.setBlock(1, 0, new Block(Color.RED));
-		board.setBlock(2, 0, new Block(Color.RED));
-		board.setBlock(2, 1, new Block(Color.RED));
+		board.setBlock(1, 0, new SingleColorBlock(Color.RED));
+		board.setBlock(2, 0, new SingleColorBlock(Color.RED));
+		board.setBlock(2, 1, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(0, board.calculateBlockCountOfColumn(0));
 		Assert.assertEquals(1, board.calculateBlockCountOfColumn(1));
@@ -50,9 +50,9 @@ public class BoardTest {
 	@Test
 	public void testClone() throws Exception {
 		Board board = new Board();
-		board.setBlock(0, 1, new Block(Color.RED));
-		board.setBlock(0, 2, new Block(Color.RED));
-		board.setBlock(1, 2, new Block(Color.RED));
+		board.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		board.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		board.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		BlockArray clone = board.clone();
 
@@ -68,9 +68,9 @@ public class BoardTest {
 	@Test
 	public void testClear() throws Exception {
 		Board board = new Board();
-		board.setBlock(0, 1, new Block(Color.RED));
-		board.setBlock(0, 2, new Block(Color.RED));
-		board.setBlock(1, 2, new Block(Color.RED));
+		board.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		board.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		board.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		board.clear();
 
@@ -86,9 +86,9 @@ public class BoardTest {
 		Board board = new Board();
 
 		BlockArray array = new BlockArray(2, 3);
-		array.setBlock(0, 1, new Block(Color.RED));
-		array.setBlock(0, 2, new Block(Color.RED));
-		array.setBlock(1, 2, new Block(Color.RED));
+		array.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		array.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		array.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		board.putBlocks(5, 7, array);
 

@@ -24,8 +24,11 @@ public class TetrisBatch {
 	}
 
 	private static void onRoundFinished(Game game, Score score, int finishedRounds) {
-		final String STRING_FORMAT = "%0" + String.valueOf(NUMBER_OF_ROUNDS).length() + "d";
-		System.out.println(String.format(STRING_FORMAT, finishedRounds) + ' ' + score.toString());
+//		final String STRING_FORMAT = "%0" + String.valueOf(NUMBER_OF_ROUNDS).length() + "d";
+//		System.out.println(String.format(STRING_FORMAT, finishedRounds) + ' ' + score.toString());
+		if (finishedRounds > 0 && (finishedRounds % (NUMBER_OF_ROUNDS / 10) == 0)) {
+			System.out.println(finishedRounds + " rounds finished.");
+		}
 	}
 
 	private static void onBatchFinished(Score totalScore, int finishedRounds) {

@@ -1,6 +1,7 @@
 package de.slothsoft.tetris;
 
 import java.awt.Color;
+import java.util.Random;
 
 public enum StoneForm {
 	I("00FF00") {
@@ -70,12 +71,17 @@ public enum StoneForm {
 
 	private static final int HEXADECIMAL = 16;
 	private static final int MAX_COLOR_INT = 256;
+	private static final Random RANDOM = new Random();
 	static final StoneForm[] VALUES = values();
+
+	public static Stone createRandomStone() {
+		return new Stone(VALUES[RANDOM.nextInt(VALUES.length)]);
+	}
 
 	private Block block;
 
 	private StoneForm(String colorHex) {
-		this.block = new Block(createColor(colorHex));
+		this.block = new SingleColorBlock(createColor(colorHex));
 	}
 
 	private static Color createColor(String colorHex) {

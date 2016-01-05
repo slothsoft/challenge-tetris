@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import de.slothsoft.tetris.Block;
 import de.slothsoft.tetris.Board;
+import de.slothsoft.tetris.SingleColorBlock;
 import de.slothsoft.tetris.Stone;
 import de.slothsoft.tetris.StoneForm;
 
@@ -67,7 +68,7 @@ public class ExampleStonePositionerRulesTest {
 	@Test
 	public void testTopStoneY() {
 		for (int i = 0; i < Board.WIDTH_IN_BLOCKS - 1; i++) {
-			this.board.setBlock(i, i, new Block(Color.BLACK));
+			this.board.setBlock(i, i, new SingleColorBlock(Color.BLACK));
 		}
 		Assert.assertEquals(0, ExampleStonePositioner.getTopStoneY(this.board, 0));
 		Assert.assertEquals(4, ExampleStonePositioner.getTopStoneY(this.board, 4));
@@ -82,13 +83,13 @@ public class ExampleStonePositionerRulesTest {
 
 		this.board.clear();
 		for (int i = 0; i < Board.WIDTH_IN_BLOCKS - 1; i++) {
-			this.board.setBlock(i, Board.HEIGHT_IN_BLOCKS - 1 - i, new Block(Color.BLACK));
+			this.board.setBlock(i, Board.HEIGHT_IN_BLOCKS - 1 - i, new SingleColorBlock(Color.BLACK));
 		}
 		Assert.assertEquals(0, ExampleStonePositioner.getPointsForHeightDifferences(this.board));
 
 		this.board.clear();
 		for (int i = 0; i < Board.WIDTH_IN_BLOCKS - 1; i++) {
-			this.board.setBlock(i, i * 2, new Block(Color.BLACK));
+			this.board.setBlock(i, i * 2, new SingleColorBlock(Color.BLACK));
 		}
 		Assert.assertEquals(-8, ExampleStonePositioner.getPointsForHeightDifferences(this.board));
 	}

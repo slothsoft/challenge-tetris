@@ -2,6 +2,7 @@ package de.slothsoft.tetris;
 
 import java.util.Objects;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public final class EventHandler {
 
@@ -15,6 +16,7 @@ public final class EventHandler {
 	private final CompleteLineUpdater completeLineUpdater = new CompleteLineUpdater();
 
 	private float tempX;
+	private Supplier<Stone> stoneFactory = StoneForm::createRandomStone;
 	private Consumer<Score> onGameFinish = i -> System.out.println("Game Over! Score: " + i.getScore());
 
 	public EventHandler(Board board) {
@@ -57,7 +59,7 @@ public final class EventHandler {
 	}
 
 	public void prepareNewStone() {
-		prepareStone(Stone.random());
+		prepareStone(this.stoneFactory.get());
 	}
 
 	public void prepareStone(Stone newStone) {
@@ -123,6 +125,19 @@ public final class EventHandler {
 
 	public void setOnGameFinish(Consumer<Score> onGameFinish) {
 		this.onGameFinish = Objects.requireNonNull(onGameFinish);
+	}
+
+	public Supplier<Stone> getStoneFactory() {
+		return this.stoneFactory;
+	}
+
+	public EventHandler stoneFactory(Supplier<Stone> newStoneFactory) {
+		setStoneFactory(newStoneFactory);
+		return this;
+	}
+
+	public void setStoneFactory(Supplier<Stone> stoneFactory) {
+		this.stoneFactory = Objects.requireNonNull(stoneFactory);
 	}
 
 	public Board getBoard() {

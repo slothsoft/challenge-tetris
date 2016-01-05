@@ -2,7 +2,6 @@ package de.slothsoft.tetris;
 
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.Random;
 
 /**
  * A stone is a moveable collection of {@link Block}s (in contrary to the {@link Board},
@@ -10,12 +9,6 @@ import java.util.Random;
  */
 
 public final class Stone extends BlockArray {
-
-	private static final Random RANDOM = new Random();
-
-	public static Stone random() {
-		return new Stone(StoneForm.VALUES[RANDOM.nextInt(StoneForm.VALUES.length)]);
-	}
 
 	private int xInBlocks;
 	private double yInBlocks;

@@ -15,31 +15,31 @@ public class ClonkCheckerTest {
 		// X_
 		// _X
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(false, this.checker.isClonkedToBlock(stone));
 
 		// there is a block below the left stone block
-		this.board.setBlock(0, 1, new Block(Color.BLUE));
+		this.board.setBlock(0, 1, new SingleColorBlock(Color.BLUE));
 		Assert.assertEquals(true, this.checker.isClonkedToBlock(stone));
 
 		// there is a block below the right stone block
 		this.board.clear();
-		this.board.setBlock(1, 2, new Block(Color.BLUE));
+		this.board.setBlock(1, 2, new SingleColorBlock(Color.BLUE));
 		Assert.assertEquals(true, this.checker.isClonkedToBlock(stone));
 
 		// there is a block in the empty whole on the top right
 		this.board.clear();
-		this.board.setBlock(1, 0, new Block(Color.BLUE));
+		this.board.setBlock(1, 0, new SingleColorBlock(Color.BLUE));
 		Assert.assertEquals(false, this.checker.isClonkedToBlock(stone));
 	}
 
 	@Test
 	public void testClonkedToBottom() {
 		Stone stone = createStone(2, 2);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(false, this.checker.isClonkedToBottom(stone));
 
@@ -58,31 +58,31 @@ public class ClonkCheckerTest {
 		// X_
 		// _X
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(false, this.checker.isClonked(stone));
 
 		// there is a block below the left stone block
-		this.board.setBlock(0, 1, new Block(Color.BLUE));
+		this.board.setBlock(0, 1, new SingleColorBlock(Color.BLUE));
 		Assert.assertEquals(true, this.checker.isClonked(stone));
 
 		// there is a block below the right stone block
 		this.board.clear();
-		this.board.setBlock(1, 2, new Block(Color.BLUE));
+		this.board.setBlock(1, 2, new SingleColorBlock(Color.BLUE));
 		Assert.assertEquals(true, this.checker.isClonked(stone));
 
 		// there is a block in the empty whole on the top right
 		this.board.clear();
-		this.board.setBlock(1, 0, new Block(Color.BLUE));
+		this.board.setBlock(1, 0, new SingleColorBlock(Color.BLUE));
 		Assert.assertEquals(false, this.checker.isClonked(stone));
 	}
 
 	@Test
 	public void testIsClonkedForToBottom() {
 		Stone stone = createStone(2, 2);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(false, this.checker.isClonked(stone));
 

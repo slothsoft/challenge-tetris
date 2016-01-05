@@ -10,9 +10,9 @@ public class StoneTest {
 	@Test
 	public void testCalculateBlockCountOfLine() throws Exception {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 1, new Block(Color.RED));
-		stone.setBlock(0, 2, new Block(Color.RED));
-		stone.setBlock(1, 2, new Block(Color.RED));
+		stone.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		stone.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(0, stone.calculateBlockCountOfLine(0));
 		Assert.assertEquals(1, stone.calculateBlockCountOfLine(1));
@@ -26,9 +26,9 @@ public class StoneTest {
 	@Test
 	public void testCalculateBlockCountOfColumn() throws Exception {
 		Stone stone = createStone(3, 2);
-		stone.setBlock(1, 0, new Block(Color.RED));
-		stone.setBlock(2, 0, new Block(Color.RED));
-		stone.setBlock(2, 1, new Block(Color.RED));
+		stone.setBlock(1, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(2, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(2, 1, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(0, stone.calculateBlockCountOfColumn(0));
 		Assert.assertEquals(1, stone.calculateBlockCountOfColumn(1));
@@ -54,9 +54,9 @@ public class StoneTest {
 	@Test
 	public void testClone() throws Exception {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 1, new Block(Color.RED));
-		stone.setBlock(0, 2, new Block(Color.RED));
-		stone.setBlock(1, 2, new Block(Color.RED));
+		stone.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		stone.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		BlockArray clone = stone.clone();
 
@@ -72,9 +72,9 @@ public class StoneTest {
 	@Test
 	public void testCreateBlocksForLeftRotation() throws Exception {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 1, new Block(Color.RED));
-		stone.setBlock(0, 2, new Block(Color.RED));
-		stone.setBlock(1, 2, new Block(Color.RED));
+		stone.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		stone.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		Block[][] newBlocks = stone.createBlocksForLeftRotation();
 		BlockArray newArray = new BlockArray(newBlocks);
@@ -94,9 +94,9 @@ public class StoneTest {
 	@Test
 	public void testCreateLeftRotation() throws Exception {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 1, new Block(Color.RED));
-		stone.setBlock(0, 2, new Block(Color.RED));
-		stone.setBlock(1, 2, new Block(Color.RED));
+		stone.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		stone.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		Stone newStone = stone.createLeftRotation();
 
@@ -115,9 +115,9 @@ public class StoneTest {
 	@Test
 	public void testRotateLeft() throws Exception {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 1, new Block(Color.RED));
-		stone.setBlock(0, 2, new Block(Color.RED));
-		stone.setBlock(1, 2, new Block(Color.RED));
+		stone.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		stone.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		stone.rotateLeft();
 
@@ -136,9 +136,9 @@ public class StoneTest {
 	@Test
 	public void testCreateBlocksForRightRotation() throws Exception {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 1, new Block(Color.RED));
-		stone.setBlock(0, 2, new Block(Color.RED));
-		stone.setBlock(1, 2, new Block(Color.RED));
+		stone.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		stone.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		Block[][] newBlocks = stone.createBlocksForRightRotation();
 		BlockArray newArray = new BlockArray(newBlocks);
@@ -158,9 +158,9 @@ public class StoneTest {
 	@Test
 	public void testCreateRightRotation() throws Exception {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 1, new Block(Color.RED));
-		stone.setBlock(0, 2, new Block(Color.RED));
-		stone.setBlock(1, 2, new Block(Color.RED));
+		stone.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		stone.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		Stone newStone = stone.createRightRotation();
 
@@ -179,9 +179,9 @@ public class StoneTest {
 	@Test
 	public void testRotateRight() throws Exception {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 1, new Block(Color.RED));
-		stone.setBlock(0, 2, new Block(Color.RED));
-		stone.setBlock(1, 2, new Block(Color.RED));
+		stone.setBlock(0, 1, new SingleColorBlock(Color.RED));
+		stone.setBlock(0, 2, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 2, new SingleColorBlock(Color.RED));
 
 		stone.rotateRight();
 

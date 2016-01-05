@@ -1,6 +1,5 @@
 package de.slothsoft.tetris;
 
-import java.awt.Graphics2D;
 
 /**
  * A block array is exactly what it says on the tin - a two dimensional array of
@@ -21,26 +20,6 @@ public class BlockArray implements Cloneable {
 		this.blocks = blocks.clone();
 		this.widthInBlocks = blocks.length;
 		this.heightInBlocks = blocks[0].length;
-	}
-
-	/**
-	 * Paints the entire block array
-	 *
-	 * @param graphics
-	 *            graphics
-	 */
-
-	public void paint(Graphics2D graphics) {
-		for (int xi = 0; xi < this.blocks.length; xi++) {
-			for (int yi = 0; yi < this.blocks[xi].length; yi++) {
-				Block block = this.blocks[xi][yi];
-				if (block != null) {
-					graphics.translate(xi * Block.WIDTH, yi * Block.HEIGHT);
-					block.paint(graphics);
-					graphics.translate(-xi * Block.WIDTH, -yi * Block.HEIGHT);
-				}
-			}
-		}
 	}
 
 	/**

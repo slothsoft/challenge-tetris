@@ -13,8 +13,8 @@ public class CollisionCheckerTest {
 	@Test
 	public void testWallOnLeft() {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(true, this.checker.isWallOnLeft(stone));
 		stone.setXInBlocks(1);
@@ -24,11 +24,11 @@ public class CollisionCheckerTest {
 	@Test
 	public void testBlockOnLeft() {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
 
-		this.board.setBlock(2, 2, new Block(Color.BLUE));
-		this.board.setBlock(4, 4, new Block(Color.BLUE));
+		this.board.setBlock(2, 2, new SingleColorBlock(Color.BLUE));
+		this.board.setBlock(4, 4, new SingleColorBlock(Color.BLUE));
 
 		Assert.assertEquals(false, this.checker.isBlockOnLeft(stone));
 		stone.setPositionInBlocks(2, 0);
@@ -46,11 +46,11 @@ public class CollisionCheckerTest {
 	@Test
 	public void testCanMoveLeft() {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
 
-		this.board.setBlock(2, 2, new Block(Color.BLUE));
-		this.board.setBlock(4, 4, new Block(Color.BLUE));
+		this.board.setBlock(2, 2, new SingleColorBlock(Color.BLUE));
+		this.board.setBlock(4, 4, new SingleColorBlock(Color.BLUE));
 
 		Assert.assertEquals(false, this.checker.canMoveLeft(stone));
 		stone.setPositionInBlocks(2, 0);
@@ -68,8 +68,8 @@ public class CollisionCheckerTest {
 	@Test
 	public void testWallOnRight() {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(false, this.checker.isWallOnRight(stone));
 		stone.setXInBlocks(Board.WIDTH_IN_BLOCKS - 2);
@@ -79,11 +79,11 @@ public class CollisionCheckerTest {
 	@Test
 	public void testBlockOnRight() {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
 
-		this.board.setBlock(2, 2, new Block(Color.BLUE));
-		this.board.setBlock(4, 4, new Block(Color.BLUE));
+		this.board.setBlock(2, 2, new SingleColorBlock(Color.BLUE));
+		this.board.setBlock(4, 4, new SingleColorBlock(Color.BLUE));
 
 		stone.setPositionInBlocks(Board.WIDTH_IN_BLOCKS - 2, 0);
 		Assert.assertEquals(false, this.checker.isBlockOnRight(stone));
@@ -102,11 +102,11 @@ public class CollisionCheckerTest {
 	@Test
 	public void testCanMoveRight() {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
 
-		this.board.setBlock(2, 2, new Block(Color.BLUE));
-		this.board.setBlock(4, 4, new Block(Color.BLUE));
+		this.board.setBlock(2, 2, new SingleColorBlock(Color.BLUE));
+		this.board.setBlock(4, 4, new SingleColorBlock(Color.BLUE));
 
 		stone.setPositionInBlocks(Board.WIDTH_IN_BLOCKS - 2, 0);
 		Assert.assertEquals(false, this.checker.canMoveRight(stone));
@@ -125,11 +125,11 @@ public class CollisionCheckerTest {
 	@Test
 	public void testCanRotate() {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
 
-		this.board.setBlock(2, 2, new Block(Color.BLUE));
-		this.board.setBlock(4, 4, new Block(Color.BLUE));
+		this.board.setBlock(2, 2, new SingleColorBlock(Color.BLUE));
+		this.board.setBlock(4, 4, new SingleColorBlock(Color.BLUE));
 
 		Assert.assertEquals(true, this.checker.canRotate(stone));
 		stone.setPositionInBlocks(1, 1);
@@ -143,9 +143,9 @@ public class CollisionCheckerTest {
 	@Test
 	public void testCanRotateStickingOutLeft() {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
-		stone.setBlock(0, 2, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
+		stone.setBlock(0, 2, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(true, this.checker.canRotate(stone));
 		stone.incrementXInBlocks(-1);
@@ -157,9 +157,9 @@ public class CollisionCheckerTest {
 	@Test
 	public void testCanRotateStickingOutBottom() {
 		Stone stone = createStone(3, 2);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
-		stone.setBlock(2, 0, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
+		stone.setBlock(2, 0, new SingleColorBlock(Color.RED));
 
 		stone.setPositionInBlocks(0, Board.HEIGHT_IN_BLOCKS - stone.getHeightInBlocks() - 1);
 		Assert.assertEquals(true, this.checker.canRotate(stone));
@@ -172,9 +172,9 @@ public class CollisionCheckerTest {
 	@Test
 	public void testCanRotateStickingOutTop() {
 		Stone stone = createStone(3, 2);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
-		stone.setBlock(2, 0, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
+		stone.setBlock(2, 0, new SingleColorBlock(Color.RED));
 
 		Assert.assertEquals(true, this.checker.canRotate(stone));
 		stone.incrementYInBlocks(-1);
@@ -186,9 +186,9 @@ public class CollisionCheckerTest {
 	@Test
 	public void testCanRotateStickingOutRight() {
 		Stone stone = createStone(2, 3);
-		stone.setBlock(0, 0, new Block(Color.RED));
-		stone.setBlock(1, 1, new Block(Color.RED));
-		stone.setBlock(0, 2, new Block(Color.RED));
+		stone.setBlock(0, 0, new SingleColorBlock(Color.RED));
+		stone.setBlock(1, 1, new SingleColorBlock(Color.RED));
+		stone.setBlock(0, 2, new SingleColorBlock(Color.RED));
 
 		stone.setPositionInBlocks(Board.WIDTH_IN_BLOCKS - stone.getWidthInBlocks() - 1, 0);
 		Assert.assertEquals(true, this.checker.canRotate(stone));
