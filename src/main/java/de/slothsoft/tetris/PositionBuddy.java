@@ -10,10 +10,15 @@ import java.util.TreeSet;
 
 import de.slothsoft.tetris.PositionBasedStonePositioner.Position;
 
+/**
+ * Helper class for positioning stones. Just give it something to calculate the score
+ * with, and it will make all the magic to find the right position itself
+ */
+
 public class PositionBuddy {
 
 	private static final int MAXIMUM_ROTATIONS = 4;
-	private static final Random RANDOM = new Random();
+	private static final Random RANDOM = new Random(42L);
 
 	private final Scorer scorer;
 
@@ -31,15 +36,18 @@ public class PositionBuddy {
 
 	private Stone[] createRotatedStones(Stone stone) {
 		Set<String> rotatedStonesStrings = new TreeSet<>();
+		rotatedStonesStrings.add(stone.stringify());
+
 		Stone[] rotatedStones = new Stone[MAXIMUM_ROTATIONS];
 		rotatedStones[0] = stone;
 		for (int i = 1; i < rotatedStones.length; i++) {
 			Stone rotatedStone = rotatedStones[i - 1].createLeftRotation();
-			if (rotatedStonesStrings.contains(rotatedStone.stringify())) {
+			String rotatedStoneString = rotatedStone.stringify();
+			if (rotatedStonesStrings.contains(rotatedStoneString)) {
 				break;
 			} else {
 				rotatedStones[i] = rotatedStone;
-				rotatedStonesStrings.add(rotatedStone.stringify());
+				rotatedStonesStrings.add(rotatedStoneString);
 			}
 		}
 		return rotatedStones;
@@ -56,15 +64,9 @@ public class PositionBuddy {
 	}
 
 	private int calculatePositionScore(int blockX, int rotationCount) {
-		if (this.rotatedStones[rotationCount] == null) {
-			return Integer.MIN_VALUE;
-		}
-		if (blockX + this.rotatedStones[rotationCount].getWidthInBlocks() > Board.WIDTH_IN_BLOCKS) {
-			return Integer.MIN_VALUE;
-		}
-		if (blockX < 0) {
-			return Integer.MIN_VALUE;
-		}
+		if (this.rotatedStones[rotationCount] == null) return Integer.MIN_VALUE;
+		if (blockX + this.rotatedStones[rotationCount].getWidthInBlocks() > Board.WIDTH_IN_BLOCKS) return Integer.MIN_VALUE;
+		if (blockX < 0) return Integer.MIN_VALUE;
 		return this.scorer.calculateScore(this.rotatedStones[rotationCount], blockX);
 	}
 

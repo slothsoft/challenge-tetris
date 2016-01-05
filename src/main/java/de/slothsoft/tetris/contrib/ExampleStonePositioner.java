@@ -11,7 +11,7 @@ import de.slothsoft.tetris.StonePositionerUtil;
 
 public class ExampleStonePositioner extends AbstractStonePositioner implements PositionBasedStonePositioner {
 
-	private static final Random RANDOM = new Random();
+	private static final Random RANDOM = new Random(7L);
 
 	private final PositionBuddy positionBuddy = new PositionBuddy(this::calculatePositionScore);
 	private boolean wantsPoleOnTheRight = RANDOM.nextBoolean();
@@ -27,9 +27,7 @@ public class ExampleStonePositioner extends AbstractStonePositioner implements P
 
 	@Override
 	public Position calculateTargetPosition(Context context) {
-		if (this.stone == context.getCurrentStone()) {
-			return new Position().xInBlocks(this.stone.getXInBlocks());
-		}
+		if (this.stone == context.getCurrentStone()) return new Position().xInBlocks(this.stone.getXInBlocks());
 
 		this.board = context.getBoard();
 		this.boardBlocks = context.getBoard().getBlocks();
@@ -40,9 +38,7 @@ public class ExampleStonePositioner extends AbstractStonePositioner implements P
 
 	private int calculatePositionScore(Stone rotatedStone, int blockX) {
 		int blockY = StonePositionerUtil.calculateFutureY(this.boardBlocks, rotatedStone, blockX);
-		if (blockY < 0) {
-			return Integer.MIN_VALUE;
-		}
+		if (blockY < 0) return Integer.MIN_VALUE;
 		return calculateScore(rotatedStone, blockX, blockY);
 	}
 
@@ -57,7 +53,7 @@ public class ExampleStonePositioner extends AbstractStonePositioner implements P
 		// minus points for any holes under the rotated stone. this is major!
 		score -= 8 * StonePositionerUtil.getHoleCount(newBoard.getBlocks(), stone, blockX, blockY);
 		// points for vanishing lines
-		score += StonePositionerUtil.getFutureLinesVanished(newBoard, stone, blockY);
+		score += 2 * StonePositionerUtil.getFutureLinesVanished(newBoard, stone, blockY);
 		// minus points for the left and right column (so we might see 4 rows vanishing)
 		score += getPointsForX(stone, blockX);
 		// points for the y coordinate so as to prefer the lowest point
@@ -100,9 +96,7 @@ public class ExampleStonePositioner extends AbstractStonePositioner implements P
 
 	protected static int getTopStoneY(Board board, int x) {
 		for (int y = 0; y < Board.HEIGHT_IN_BLOCKS; y++) {
-			if (board.getBlock(x, y) != null) {
-				return y;
-			}
+			if (board.getBlock(x, y) != null) return y;
 		}
 		return Board.HEIGHT_IN_BLOCKS;
 	}
@@ -114,12 +108,8 @@ public class ExampleStonePositioner extends AbstractStonePositioner implements P
 	}
 
 	protected int getPointsForX(Stone rotatedStone, int blockX) {
-		if (blockX == 0 && !this.wantsPoleOnTheRight) {
-			return -1;
-		}
-		if (blockX == Board.WIDTH_IN_BLOCKS - rotatedStone.getWidthInBlocks() && this.wantsPoleOnTheRight) {
-			return -1;
-		}
+		if (blockX == 0 && !this.wantsPoleOnTheRight) return -1;
+		if (blockX == Board.WIDTH_IN_BLOCKS - rotatedStone.getWidthInBlocks() && this.wantsPoleOnTheRight) return -1;
 		return 0;
 	}
 
