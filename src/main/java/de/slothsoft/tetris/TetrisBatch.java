@@ -4,6 +4,8 @@ import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+import de.slothsoft.tetris.blocks.DefaultStoneFactory;
+
 /**
  * This class starts a bunch of games without any GUI to see how the AI performs in the
  * long run
@@ -14,12 +16,14 @@ public class TetrisBatch {
 	private static final StonePositioner POSITIONER = Tetris.POSITIONER;
 	private static final int THREADS = 4;
 	private static final int NUMBER_OF_ROUNDS = 1000;
+	private static final StoneFactory STONE_FACTORY = DefaultStoneFactory.FUNKY;
 
 	public static void main(String[] args) throws Exception {
 		TetrisBatch batch = new TetrisBatch(POSITIONER);
 		batch.threads(THREADS).numberOfRounds(NUMBER_OF_ROUNDS);
 		batch.setOnRoundFinish((game, score) -> onRoundFinished(game, score, batch.getFinishedRounds()));
 		batch.setOnBatchFinish(totalScore -> onBatchFinished(totalScore, batch.getFinishedRounds()));
+		batch.stoneFactory(STONE_FACTORY);
 		batch.start();
 	}
 
@@ -48,6 +52,7 @@ public class TetrisBatch {
 	private int numberOfRounds = 1000;
 	private BiConsumer<Game, Score> onRoundFinish = (game, score) -> score.getClass();
 	private Consumer<Score> onBatchFinish = (total) -> total.getClass();
+	private StoneFactory stoneFactory = DefaultStoneFactory.DEFAULT;
 
 	private int finishedRounds;
 	private int stoppedGames;
@@ -63,6 +68,7 @@ public class TetrisBatch {
 				Game game = new Game();
 				game.stonePositioner(this.positioner.getClass().newInstance());
 				game.timePerStone(0).onGameFinish(score -> roundFinished(game, score));
+				game.setStoneFactory(this.stoneFactory);
 				game.start();
 			} catch (Exception e) {
 				throw new RuntimeException(e);
@@ -151,6 +157,19 @@ public class TetrisBatch {
 
 	public StonePositioner getPositioner() {
 		return this.positioner;
+	}
+
+	public StoneFactory getStoneFactory() {
+		return this.stoneFactory;
+	}
+
+	public TetrisBatch stoneFactory(StoneFactory newStoneFactory) {
+		setStoneFactory(newStoneFactory);
+		return this;
+	}
+
+	public void setStoneFactory(StoneFactory stoneFactory) {
+		this.stoneFactory = Objects.requireNonNull(stoneFactory);
 	}
 
 }

@@ -19,6 +19,7 @@ public class TetrisFrame extends JFrame {
 
 	public TetrisFrame() {
 		setTitle("Tetris");
+		this.settingsPanel.onRendererChanged(r -> this.gamePanel.setRenderer(r));
 		this.game.start();
 	}
 

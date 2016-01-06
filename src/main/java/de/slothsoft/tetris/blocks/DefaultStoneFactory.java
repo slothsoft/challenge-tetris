@@ -7,9 +7,9 @@ import de.slothsoft.tetris.Stone;
 import de.slothsoft.tetris.StoneFactory;
 
 public enum DefaultStoneFactory implements StoneFactory {
-	DEFAULT("Default", StoneForm.values()),
+	DEFAULT("Default Stones", StoneForm.values()),
 
-	FUNKY("Funky", FunkyStoneForm.values()),
+	FUNKY("Funky Stones", FunkyStoneForm.values()),
 
 	;
 

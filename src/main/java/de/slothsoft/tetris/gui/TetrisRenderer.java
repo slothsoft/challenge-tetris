@@ -16,7 +16,21 @@ import de.slothsoft.tetris.Stone;
 public interface TetrisRenderer {
 
 	TetrisRenderer DEFAULT = new TetrisRenderer() {
+
+		@Override
+		public String getDisplayName() {
+			return "Default";
+		}
+
+		@Override
+		public void paintBlock(Graphics2D graphics, Block block) {
+			block.paint(graphics);
+		}
 	};
+
+	default String getDisplayName() {
+		return getClass().getSimpleName();
+	}
 
 	/**
 	 * Paints a board
@@ -93,8 +107,6 @@ public interface TetrisRenderer {
 	 *            block array
 	 */
 
-	default void paintBlock(Graphics2D graphics, Block block) {
-		block.paint(graphics);
-	}
+	void paintBlock(Graphics2D graphics, Block block);
 
 }

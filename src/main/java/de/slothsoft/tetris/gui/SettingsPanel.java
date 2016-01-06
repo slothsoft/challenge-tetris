@@ -7,7 +7,9 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Vector;
+import java.util.function.Consumer;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
@@ -30,6 +32,7 @@ public class SettingsPanel extends JPanel {
 	private static final Insets INSETS = new Insets(5, 5, 5, 5);
 
 	private final Game game;
+	private Consumer<TetrisRenderer> onRendererChanged = r -> System.out.print("");
 
 	public SettingsPanel(Game game) {
 		this.game = game;
@@ -94,8 +97,15 @@ public class SettingsPanel extends JPanel {
 		parent.add(stoneFactory, createControlConstraints(1, y));
 		y++;
 
-		parent.add(new JLabel(), new GridBagConstraints(1, y, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
-				GridBagConstraints.BOTH, INSETS, 0, 0));
+		JComboBox<TetrisRenderer> renderer = new JComboBox<>();
+		renderer.setModel(new DefaultComboBoxModel<TetrisRenderer>(new Vector<>(TetrisRenderers.getTetrisRenderers())));
+		renderer.setRenderer(new DisplayableListCellRenderer<TetrisRenderer>(f -> f.getDisplayName()));
+		renderer.addActionListener(e -> this.onRendererChanged.accept((TetrisRenderer) renderer.getSelectedItem()));
+		renderer.setSelectedItem(TetrisRenderer.DEFAULT);
+
+		parent.add(createLabel("Renderer"), createLabelConstraints(0, y));
+		parent.add(renderer, createControlConstraints(1, y));
+		y++;
 
 		return parent;
 	}
@@ -114,6 +124,19 @@ public class SettingsPanel extends JPanel {
 	private static GridBagConstraints createControlConstraints(int x, int y) {
 		return new GridBagConstraints(x, y, 1, 1, 1.0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
 				INSETS, 0, 0);
+	}
+
+	public Consumer<TetrisRenderer> getOnRendererChanged() {
+		return this.onRendererChanged;
+	}
+
+	public SettingsPanel onRendererChanged(Consumer<TetrisRenderer> newOnRendererChanged) {
+		setOnRendererChanged(newOnRendererChanged);
+		return this;
+	}
+
+	public void setOnRendererChanged(Consumer<TetrisRenderer> onRendererChanged) {
+		this.onRendererChanged = Objects.requireNonNull(onRendererChanged);
 	}
 
 }

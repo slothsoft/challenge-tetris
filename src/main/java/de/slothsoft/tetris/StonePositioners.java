@@ -10,7 +10,7 @@ import java.util.List;
 
 import de.slothsoft.tetris.contrib.ExampleStonePositioner;
 
-public class StonePositioners {
+public final class StonePositioners {
 
 	public static List<StonePositioner> getStonePositioners() {
 		return getStonePositioners(ExampleStonePositioner.class.getPackage());
@@ -45,9 +45,7 @@ public class StonePositioners {
 
 	private static List<Class<?>> findClasses(File directory, String packageName) throws ClassNotFoundException {
 		List<Class<?>> classes = new ArrayList<>();
-		if (!directory.exists()) {
-			return classes;
-		}
+		if (!directory.exists()) return classes;
 		File[] files = directory.listFiles();
 		for (File file : files) {
 			if (file.isDirectory()) {
@@ -57,6 +55,9 @@ public class StonePositioners {
 			}
 		}
 		return classes;
+	}
 
+	private StonePositioners() {
+		// hide me
 	}
 }

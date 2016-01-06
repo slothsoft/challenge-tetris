@@ -6,34 +6,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 import de.slothsoft.tetris.Block;
-import de.slothsoft.tetris.blocks.SingleColorBlock;
+import de.slothsoft.tetris.blocks.FunkyBlock;
 
-public class SingleColorTetrisRenderer implements TetrisRenderer {
+public class FunkyTetrisRenderer implements TetrisRenderer {
 
-	private final Map<Integer, SingleColorBlock> colors = new HashMap<>();
+	private final Map<Integer, FunkyBlock> colors = new HashMap<>();
 
 	@Override
 	public String getDisplayName() {
-		return "Single color Renderer";
+		return "Funky Renderer";
 	}
 
 	@Override
 	public void paintBlock(Graphics2D graphics, Block block) {
-		if (block instanceof SingleColorBlock) {
+		if (block instanceof FunkyBlock) {
 			block.paint(graphics);
 		} else {
-			paintAsSingleColorBlock(graphics, block);
+			paintAsFunkyBlock(graphics, block);
 		}
 	}
 
-	void paintAsSingleColorBlock(Graphics2D graphics, Block block) {
-		SingleColorBlock singleColorBlock;
+	void paintAsFunkyBlock(Graphics2D graphics, Block block) {
+		FunkyBlock singleColorBlock;
 
 		Integer key = Integer.valueOf(block.hashCode());
 		if (this.colors.containsKey(block.hashCode())) {
 			singleColorBlock = this.colors.get(key);
 		} else {
-			singleColorBlock = new SingleColorBlock(new Color(key.intValue()));
+			singleColorBlock = new FunkyBlock(new Color(key.intValue()));
 			this.colors.put(key, singleColorBlock);
 		}
 		singleColorBlock.paint(graphics);
