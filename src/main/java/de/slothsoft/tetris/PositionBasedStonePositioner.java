@@ -1,5 +1,10 @@
 package de.slothsoft.tetris;
 
+/**
+ * Interface used for positioning a stone on the board based on a target
+ * position
+ */
+
 public interface PositionBasedStonePositioner extends StonePositioner {
 
 	@Override
@@ -8,7 +13,37 @@ public interface PositionBasedStonePositioner extends StonePositioner {
 		requestMovement(context, position);
 	}
 
+	/**
+	 * Returns the position you want the stone to move to.
+	 * 
+	 * <pre>
+	 * <code>
+	 * public Position calculateTargetPosition(Context context) {
+	 * 	return new Position().xInBlocks(5).leftRotation(1);
+	 * }
+	 * </code>
+	 * </pre>
+	 * 
+	 * The stone might reach the target position, or it might not if another
+	 * {@link Block} or the border of the {@link Board} is in the way.
+	 * 
+	 * @param context
+	 *            - the context to get information about the board and request
+	 *            stone moves
+	 * @return the position to move to
+	 */
+
 	Position calculateTargetPosition(Context context);
+
+	/**
+	 * Requests the stone to move to a specified position
+	 * 
+	 * @param context
+	 *            - the context to get information about the board and request
+	 *            stone moves
+	 * @param position
+	 *            - the position to move to
+	 */
 
 	default void requestMovement(Context context, Position position) {
 		Stone stone = context.getCurrentStone();

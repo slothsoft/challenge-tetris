@@ -11,8 +11,8 @@ import java.util.TreeSet;
 import de.slothsoft.tetris.PositionBasedStonePositioner.Position;
 
 /**
- * Helper class for positioning stones. Just give it something to calculate the score
- * with, and it will make all the magic to find the right position itself
+ * Helper class for positioning stones. Just give it something to calculate the
+ * score with, and it will do all the magic to find the right position itself
  */
 
 public class PositionBuddy {
@@ -64,9 +64,12 @@ public class PositionBuddy {
 	}
 
 	private int calculatePositionScore(int blockX, int rotationCount) {
-		if (this.rotatedStones[rotationCount] == null) return Integer.MIN_VALUE;
-		if (blockX + this.rotatedStones[rotationCount].getWidthInBlocks() > Board.WIDTH_IN_BLOCKS) return Integer.MIN_VALUE;
-		if (blockX < 0) return Integer.MIN_VALUE;
+		if (this.rotatedStones[rotationCount] == null)
+			return Integer.MIN_VALUE;
+		if (blockX + this.rotatedStones[rotationCount].getWidthInBlocks() > Board.WIDTH_IN_BLOCKS)
+			return Integer.MIN_VALUE;
+		if (blockX < 0)
+			return Integer.MIN_VALUE;
 		return this.scorer.calculateScore(this.rotatedStones[rotationCount], blockX);
 	}
 

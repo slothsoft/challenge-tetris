@@ -7,7 +7,7 @@ import java.util.function.Function;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
 
-public class DisplayableListCellRenderer<T> extends DefaultListCellRenderer {
+class DisplayableListCellRenderer<T> extends DefaultListCellRenderer {
 
 	private static final long serialVersionUID = -3711002482821614930L;
 

@@ -35,7 +35,8 @@ public class ExampleStonePositioner extends AbstractStonePositioner implements P
 
 	@Override
 	public Position calculateTargetPosition(Context context) {
-		if (this.stone == context.getCurrentStone()) return new Position().xInBlocks(this.stone.getXInBlocks());
+		if (this.stone == context.getCurrentStone())
+			return new Position().xInBlocks(this.stone.getXInBlocks());
 
 		this.board = context.getBoard();
 		this.boardBlocks = context.getBoard().getBlocks();
@@ -46,7 +47,8 @@ public class ExampleStonePositioner extends AbstractStonePositioner implements P
 
 	private int calculatePositionScore(Stone rotatedStone, int blockX) {
 		int blockY = StonePositionerUtil.calculateFutureY(this.boardBlocks, rotatedStone, blockX);
-		if (blockY < 0) return Integer.MIN_VALUE;
+		if (blockY < 0)
+			return Integer.MIN_VALUE;
 		return calculateScore(rotatedStone, blockX, blockY);
 	}
 
@@ -62,7 +64,8 @@ public class ExampleStonePositioner extends AbstractStonePositioner implements P
 		score -= 8 * StonePositionerUtil.getHoleCount(newBoard.getBlocks(), stone, blockX, blockY);
 		// points for vanishing lines
 		score += 2 * StonePositionerUtil.getFutureLinesVanished(newBoard, stone, blockY);
-		// minus points for the left and right column (so we might see 4 rows vanishing)
+		// minus points for the left and right column (so we might see 4 rows
+		// vanishing)
 		score += getPointsForX(stone, blockX);
 		// points for the y coordinate so as to prefer the lowest point
 		score += getPointsForY(blockY);
@@ -79,10 +82,10 @@ public class ExampleStonePositioner extends AbstractStonePositioner implements P
 		System.out.println("------------------------------------------------------");
 		System.out.println(stone.stringify() + blockX);
 		System.out.println("getPointsForHeightDifferences = " + getPointsForHeightDifferences(newBoard));
-		System.out.println("getHoleCount = " + -8
-				* StonePositionerUtil.getHoleCount(newBoard.getBlocks(), stone, blockX, blockY));
-		System.out.println("getFutureLinesVanished = "
-				+ StonePositionerUtil.getFutureLinesVanished(newBoard, stone, blockY));
+		System.out.println(
+				"getHoleCount = " + -8 * StonePositionerUtil.getHoleCount(newBoard.getBlocks(), stone, blockX, blockY));
+		System.out.println(
+				"getFutureLinesVanished = " + StonePositionerUtil.getFutureLinesVanished(newBoard, stone, blockY));
 		System.out.println("getPointsForX = " + getPointsForX(stone, blockX));
 		System.out.println("getPointsForY = " + getPointsForY(blockY));
 		System.out.println("getPointsForFlatObjects = " + getPointsForFlatObjects(stone));
@@ -104,20 +107,24 @@ public class ExampleStonePositioner extends AbstractStonePositioner implements P
 
 	protected static int getTopStoneY(Board board, int x) {
 		for (int y = 0; y < Board.HEIGHT_IN_BLOCKS; y++) {
-			if (board.getBlock(x, y) != null) return y;
+			if (board.getBlock(x, y) != null)
+				return y;
 		}
 		return Board.HEIGHT_IN_BLOCKS;
 	}
 
 	protected static int getPointsForHeightDifference(int lastHeight, int height) {
-		// 0 difference is good (+1) | 1 difference is ok (+-0) | more than 1 difference
+		// 0 difference is good (+1) | 1 difference is ok (+-0) | more than 1
+		// difference
 		// is bad (-x)
 		return 1 - Math.abs(lastHeight - height);
 	}
 
 	protected int getPointsForX(Stone rotatedStone, int blockX) {
-		if (blockX == 0 && !this.wantsPoleOnTheRight) return -1;
-		if (blockX == Board.WIDTH_IN_BLOCKS - rotatedStone.getWidthInBlocks() && this.wantsPoleOnTheRight) return -1;
+		if (blockX == 0 && !this.wantsPoleOnTheRight)
+			return -1;
+		if (blockX == Board.WIDTH_IN_BLOCKS - rotatedStone.getWidthInBlocks() && this.wantsPoleOnTheRight)
+			return -1;
 		return 0;
 	}
 

@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 
+/**
+ * Removes complete lines from the {@link Board}
+ */
+
 public final class CompleteLineUpdater {
 
 	/**

@@ -10,6 +10,10 @@ import javax.swing.JPanel;
 
 import de.slothsoft.tetris.Score;
 
+/**
+ * A panel to display the {@link Score}
+ */
+
 public class ScorePanel extends JPanel {
 
 	private static final long serialVersionUID = -2165255329208901685L;

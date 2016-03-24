@@ -4,7 +4,7 @@ import de.slothsoft.tetris.contrib.ExampleStonePositioner;
 import de.slothsoft.tetris.gui.TetrisFrame;
 
 /**
- * This class starts a standard game of tetris to watch how the AI works
+ * This class starts a standard game of Tetris to watch how the AI works
  */
 
 public class Tetris {

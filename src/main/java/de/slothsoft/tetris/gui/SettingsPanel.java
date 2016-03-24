@@ -26,6 +26,10 @@ import de.slothsoft.tetris.StonePositioner;
 import de.slothsoft.tetris.StonePositioners;
 import de.slothsoft.tetris.blocks.DefaultStoneFactory;
 
+/**
+ * A panel to display game settings
+ */
+
 public class SettingsPanel extends JPanel {
 
 	private static final long serialVersionUID = -2165255329208901685L;
@@ -67,11 +71,11 @@ public class SettingsPanel extends JPanel {
 
 		int y = 0;
 		JComboBox<StonePositioner> stonePositioner = new JComboBox<>();
-		stonePositioner.setModel(new DefaultComboBoxModel<StonePositioner>(new Vector<>(StonePositioners
-				.getStonePositioners())));
+		stonePositioner.setModel(
+				new DefaultComboBoxModel<StonePositioner>(new Vector<>(StonePositioners.getStonePositioners())));
 		stonePositioner.setRenderer(new DisplayableListCellRenderer<StonePositioner>(p -> p.getDisplayName()));
-		stonePositioner.addActionListener(e -> this.game.setStonePositioner((StonePositioner) stonePositioner
-				.getSelectedItem()));
+		stonePositioner.addActionListener(
+				e -> this.game.setStonePositioner((StonePositioner) stonePositioner.getSelectedItem()));
 		stonePositioner.setSelectedItem(this.game.getStonePositioner());
 
 		parent.add(createLabel("Positioner"), createLabelConstraints(0, y));
@@ -87,8 +91,8 @@ public class SettingsPanel extends JPanel {
 		y++;
 
 		JComboBox<StoneFactory> stoneFactory = new JComboBox<>();
-		stoneFactory.setModel(new DefaultComboBoxModel<StoneFactory>(new Vector<>(Arrays.asList(DefaultStoneFactory
-				.values()))));
+		stoneFactory.setModel(
+				new DefaultComboBoxModel<StoneFactory>(new Vector<>(Arrays.asList(DefaultStoneFactory.values()))));
 		stoneFactory.setRenderer(new DisplayableListCellRenderer<StoneFactory>(f -> f.getDisplayName()));
 		stoneFactory.addActionListener(e -> this.game.setStoneFactory((StoneFactory) stoneFactory.getSelectedItem()));
 		stoneFactory.setSelectedItem(this.game.getStoneFactory());
@@ -98,7 +102,7 @@ public class SettingsPanel extends JPanel {
 		y++;
 
 		JComboBox<TetrisRenderer> renderer = new JComboBox<>();
-		renderer.setModel(new DefaultComboBoxModel<TetrisRenderer>(new Vector<>(TetrisRenderers.getTetrisRenderers())));
+		renderer.setModel(new DefaultComboBoxModel<TetrisRenderer>(new Vector<>(TetrisRenderer.getTetrisRenderers())));
 		renderer.setRenderer(new DisplayableListCellRenderer<TetrisRenderer>(f -> f.getDisplayName()));
 		renderer.addActionListener(e -> this.onRendererChanged.accept((TetrisRenderer) renderer.getSelectedItem()));
 		renderer.setSelectedItem(TetrisRenderer.DEFAULT);

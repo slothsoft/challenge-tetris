@@ -9,6 +9,11 @@ import javax.swing.JFrame;
 import de.slothsoft.tetris.Game;
 import de.slothsoft.tetris.Tetris;
 
+/**
+ * The frame that holds the entire Tetris game: the {@link Board}, the
+ * {@link Score} and the settings
+ */
+
 public class TetrisFrame extends JFrame {
 
 	private static final long serialVersionUID = -2165255329208901685L;

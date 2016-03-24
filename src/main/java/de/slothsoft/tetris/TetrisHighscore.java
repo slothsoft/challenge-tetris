@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * This class starts a bunch of games for every contribution without any GUI to see how
- * the AI performs compared to other AIs
+ * This class starts a bunch of games for every contribution without any GUI to
+ * see how the AI performs compared to other AIs
  */
 
 public class TetrisHighscore {

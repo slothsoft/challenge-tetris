@@ -1,8 +1,10 @@
 package de.slothsoft.tetris;
 
-
 /**
  * A board is where the entire action plays out
+ * 
+ * @see <a href="https://github.com/slothsoft/tetris-challenge/wiki#basics">
+ *      Basics</a>
  */
 
 public final class Board extends BlockArray {
