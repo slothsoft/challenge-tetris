@@ -38,7 +38,7 @@ public class BoardTest {
 		Board board = new Board();
 
 		Assert.assertEquals(Board.WIDTH_IN_BLOCKS, board.getWidthInBlocks());
-		Assert.assertEquals(Board.WIDTH_IN_BLOCKS * Block.WIDTH, board.getWidthInPixels());
+		Assert.assertEquals(Board.WIDTH_IN_BLOCKS * Block.WIDTH_IN_PIXELS, board.getWidthInPixels());
 	}
 
 	@Test
@@ -46,7 +46,7 @@ public class BoardTest {
 		Board board = new Board();
 
 		Assert.assertEquals(Board.HEIGHT_IN_BLOCKS, board.getHeightInBlocks());
-		Assert.assertEquals(Board.HEIGHT_IN_BLOCKS * Block.HEIGHT, board.getHeightInPixels());
+		Assert.assertEquals(Board.HEIGHT_IN_BLOCKS * Block.HEIGHT_IN_PIXELS, board.getHeightInPixels());
 	}
 
 	@Test

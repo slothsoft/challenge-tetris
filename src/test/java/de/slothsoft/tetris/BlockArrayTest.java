@@ -38,7 +38,7 @@ public class BlockArrayTest {
 		BlockArray array = new BlockArray(3, 2);
 
 		Assert.assertEquals(3, array.getWidthInBlocks());
-		Assert.assertEquals(3 * Block.WIDTH, array.getWidthInPixels());
+		Assert.assertEquals(3 * Block.WIDTH_IN_PIXELS, array.getWidthInPixels());
 	}
 
 	@Test
@@ -46,7 +46,7 @@ public class BlockArrayTest {
 		BlockArray array = new BlockArray(3, 2);
 
 		Assert.assertEquals(2, array.getHeightInBlocks());
-		Assert.assertEquals(2 * Block.HEIGHT, array.getHeightInPixels());
+		Assert.assertEquals(2 * Block.HEIGHT_IN_PIXELS, array.getHeightInPixels());
 	}
 
 	@Test

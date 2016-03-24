@@ -35,6 +35,9 @@ public class TetrisFrame extends JFrame {
 		setLayout(new BorderLayout());
 		add(this.settingsPanel, BorderLayout.WEST);
 		add(this.gamePanel, BorderLayout.CENTER);
+
+		this.settingsPanel.setBorder(new SettingsBorder(this.gamePanel));
+
 		pack();
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		centerWindow();
@@ -64,11 +67,11 @@ public class TetrisFrame extends JFrame {
 	}
 
 	public void setStonePositioner(StonePositioner stonePositioner) {
-		game.setStonePositioner(stonePositioner);
+		this.game.setStonePositioner(stonePositioner);
 	}
 
 	public boolean isShowSettings() {
-		return settingsPanel.isShowSettings();
+		return this.settingsPanel.isShowSettings();
 	}
 
 	public TetrisFrame showSettings(boolean showSettings) {

@@ -28,18 +28,18 @@ public final class FunkyBlock implements Block {
 	@Override
 	public void paint(Graphics2D graphics) {
 		graphics.setColor(BACKGROUND);
-		graphics.fillRect(0, 0, WIDTH, HEIGHT);
+		graphics.fillRect(0, 0, WIDTH_IN_PIXELS, HEIGHT_IN_PIXELS);
 
-		int oneFourth = WIDTH / 4;
-		int oneHalf = WIDTH / 2;
+		int oneFourth = WIDTH_IN_PIXELS / 4;
+		int oneHalf = WIDTH_IN_PIXELS / 2;
 
 		graphics.setColor(this.darkColor);
-		graphics.fillRect(0, oneFourth + 4, WIDTH, oneFourth);
-		graphics.fillRect(oneFourth + 4, 0, oneFourth, HEIGHT);
+		graphics.fillRect(0, oneFourth + 4, WIDTH_IN_PIXELS, oneFourth);
+		graphics.fillRect(oneFourth + 4, 0, oneFourth, HEIGHT_IN_PIXELS);
 
 		graphics.setColor(this.color);
-		graphics.fillRect(0, oneHalf, WIDTH, oneFourth);
-		graphics.fillRect(oneHalf, 0, oneFourth, HEIGHT);
+		graphics.fillRect(0, oneHalf, WIDTH_IN_PIXELS, oneFourth);
+		graphics.fillRect(oneHalf, 0, oneFourth, HEIGHT_IN_PIXELS);
 	}
 
 }

@@ -121,9 +121,9 @@ public interface TetrisRenderer {
 			for (int yi = 0; yi < blocks[xi].length; yi++) {
 				Block block = blocks[xi][yi];
 				if (block != null) {
-					graphics.translate(xi * Block.WIDTH, yi * Block.HEIGHT);
+					graphics.translate(xi * Block.WIDTH_IN_PIXELS, yi * Block.HEIGHT_IN_PIXELS);
 					paintBlock(graphics, block);
-					graphics.translate(-xi * Block.WIDTH, -yi * Block.HEIGHT);
+					graphics.translate(-xi * Block.WIDTH_IN_PIXELS, -yi * Block.HEIGHT_IN_PIXELS);
 				}
 			}
 		}

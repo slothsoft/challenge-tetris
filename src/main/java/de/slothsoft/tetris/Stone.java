@@ -99,7 +99,7 @@ public final class Stone extends BlockArray {
 	}
 
 	public int getXInPixels() {
-		return this.xInBlocks * Block.WIDTH;
+		return this.xInBlocks * Block.WIDTH_IN_PIXELS;
 	}
 
 	void incrementXInBlocks(int increment) {
@@ -127,7 +127,7 @@ public final class Stone extends BlockArray {
 	}
 
 	public int getYInPixels() {
-		return (int) (this.yInBlocks * Block.HEIGHT);
+		return (int) (this.yInBlocks * Block.HEIGHT_IN_PIXELS);
 	}
 
 	void incrementYInBlocks(double increment) {

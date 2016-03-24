@@ -11,9 +11,9 @@ package de.slothsoft.tetris;
 public final class Board extends BlockArray {
 
 	public static final int WIDTH_IN_BLOCKS = 10;
-	public static final int WIDTH_IN_PIXELS = WIDTH_IN_BLOCKS * Block.WIDTH;
+	public static final int WIDTH_IN_PIXELS = WIDTH_IN_BLOCKS * Block.WIDTH_IN_PIXELS;
 	public static final int HEIGHT_IN_BLOCKS = 22;
-	public static final int HEIGHT_IN_PIXELS = HEIGHT_IN_BLOCKS * Block.WIDTH;
+	public static final int HEIGHT_IN_PIXELS = HEIGHT_IN_BLOCKS * Block.WIDTH_IN_PIXELS;
 	public static final int BORDER_WIDTH = 2;
 
 	private Stone currentStone;

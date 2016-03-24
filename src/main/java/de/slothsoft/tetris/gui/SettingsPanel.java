@@ -57,14 +57,7 @@ public class SettingsPanel extends JPanel {
 	}
 
 	private Component createScorePanel() {
-		JPanel result = new JPanel();
-		result.setLayout(new GridBagLayout());
-		result.setBackground(Color.BLACK);
-
-		result.add(createSpanner(), createControlConstraints(0, 0));
-		result.add(new ScorePanel(this.game.getScore()), createLabelConstraints(1, 0));
-		result.add(createSpanner(), createControlConstraints(2, 0));
-		return result;
+		return new ScorePanel(this.game.getScore());
 	}
 
 	private Component createSpanner() {
@@ -79,8 +72,7 @@ public class SettingsPanel extends JPanel {
 		titleBorder.setTitleColor(Color.WHITE);
 
 		JPanel parent = new JPanel();
-		parent.setBorder(
-				BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0, 25, 25, 0), titleBorder));
+		parent.setBorder(titleBorder);
 		parent.setLayout(new GridBagLayout());
 		parent.setBackground(Color.BLACK);
 

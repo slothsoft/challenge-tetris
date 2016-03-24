@@ -89,11 +89,11 @@ public class BlockArray implements Cloneable {
 	}
 
 	public int getWidthInPixels() {
-		return this.widthInBlocks * Block.WIDTH;
+		return this.widthInBlocks * Block.WIDTH_IN_PIXELS;
 	}
 
 	public int getHeightInPixels() {
-		return this.heightInBlocks * Block.HEIGHT;
+		return this.heightInBlocks * Block.HEIGHT_IN_PIXELS;
 	}
 
 	final void setBlocks(Block[][] blocks) {
