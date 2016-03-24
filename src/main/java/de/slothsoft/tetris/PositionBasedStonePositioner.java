@@ -3,6 +3,8 @@ package de.slothsoft.tetris;
 /**
  * Interface used for positioning a stone on the board based on a target
  * position
+ * 
+ * @since 1.0.0
  */
 
 public interface PositionBasedStonePositioner extends StonePositioner {

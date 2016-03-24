@@ -9,6 +9,7 @@ import java.util.Objects;
  * 
  * @see <a href="https://github.com/slothsoft/tetris-challenge/wiki#basics">
  *      Basics</a>
+ * @since 1.0.0
  */
 
 public final class Stone extends BlockArray {

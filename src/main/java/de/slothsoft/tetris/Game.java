@@ -5,6 +5,8 @@ import java.util.function.Consumer;
 
 /**
  * The game class that holds everything together.
+ * 
+ * @since 1.0.0
  */
 
 public class Game {

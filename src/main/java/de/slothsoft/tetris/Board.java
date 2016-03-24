@@ -5,6 +5,7 @@ package de.slothsoft.tetris;
  * 
  * @see <a href="https://github.com/slothsoft/tetris-challenge/wiki#basics">
  *      Basics</a>
+ * @since 1.0.0
  */
 
 public final class Board extends BlockArray {

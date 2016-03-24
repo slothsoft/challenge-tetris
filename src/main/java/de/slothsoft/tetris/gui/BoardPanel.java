@@ -13,6 +13,8 @@ import de.slothsoft.tetris.Board;
 
 /**
  * A panel to paint a {@link Board} on
+ * 
+ * @since 1.0.0
  */
 
 public class BoardPanel extends JPanel {

@@ -28,6 +28,8 @@ import de.slothsoft.tetris.blocks.DefaultStoneFactory;
 
 /**
  * A panel to display game settings
+ * 
+ * @since 1.0.0
  */
 
 public class SettingsPanel extends JPanel {

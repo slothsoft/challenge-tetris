@@ -10,6 +10,8 @@ import de.slothsoft.tetris.blocks.SingleColorBlock;
 
 /**
  * A {@link TetrisRenderer} that renders all stone as single color stones
+ * 
+ * @since 1.0.0
  */
 
 public class SingleColorTetrisRenderer implements TetrisRenderer {

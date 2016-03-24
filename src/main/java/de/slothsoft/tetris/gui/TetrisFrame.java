@@ -6,12 +6,16 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
+import de.slothsoft.tetris.Board;
 import de.slothsoft.tetris.Game;
+import de.slothsoft.tetris.Score;
 import de.slothsoft.tetris.Tetris;
 
 /**
  * The frame that holds the entire Tetris game: the {@link Board}, the
  * {@link Score} and the settings
+ * 
+ * @since 1.0.0
  */
 
 public class TetrisFrame extends JFrame {

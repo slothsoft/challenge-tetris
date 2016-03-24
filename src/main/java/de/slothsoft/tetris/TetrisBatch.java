@@ -9,6 +9,8 @@ import de.slothsoft.tetris.blocks.DefaultStoneFactory;
 /**
  * This class starts a bunch of games without any GUI to see how the AI performs
  * in the long run
+ * 
+ * @since 1.0.0
  */
 
 public class TetrisBatch {

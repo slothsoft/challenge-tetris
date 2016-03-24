@@ -2,6 +2,8 @@ package de.slothsoft.tetris;
 
 /**
  * A factory for {@link Stone}s
+ * 
+ * @since 1.0.0
  */
 
 public interface StoneFactory {

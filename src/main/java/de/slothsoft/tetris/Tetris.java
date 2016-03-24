@@ -5,6 +5,8 @@ import de.slothsoft.tetris.gui.TetrisFrame;
 
 /**
  * This class starts a standard game of Tetris to watch how the AI works
+ * 
+ * @since 1.0.0
  */
 
 public class Tetris {

@@ -2,6 +2,8 @@ package de.slothsoft.tetris;
 
 /**
  * Util class for calculating stuff to get a good stone position
+ * 
+ * @since 1.0.0
  */
 
 public final class StonePositionerUtil {

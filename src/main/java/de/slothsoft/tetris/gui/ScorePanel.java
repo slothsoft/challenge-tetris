@@ -12,6 +12,8 @@ import de.slothsoft.tetris.Score;
 
 /**
  * A panel to display the {@link Score}
+ * 
+ * @since 1.0.0
  */
 
 public class ScorePanel extends JPanel {

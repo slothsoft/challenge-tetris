@@ -2,7 +2,16 @@ package de.slothsoft.tetris.contrib;
 
 import java.util.Objects;
 
+import de.slothsoft.tetris.PositionBasedStonePositioner;
 import de.slothsoft.tetris.StonePositioner;
+
+/**
+ * Base class for a {@link StonePositioner} or {@link PositionBasedStonePositioner} that
+ * already implements <code>hashCode()</code>, <code>equals(Object)</code> and
+ * <code>toString()</code>
+ * 
+ * @since 1.0.0
+ */
 
 public abstract class AbstractStonePositioner implements StonePositioner {
 

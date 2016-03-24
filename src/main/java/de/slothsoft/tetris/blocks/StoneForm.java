@@ -5,6 +5,8 @@ import de.slothsoft.tetris.blocks.DefaultStoneFactory.StoneProviderEnum;
 
 /**
  * These stones are pretty similar to the default tetris stones
+ * 
+ * @since 1.0.0
  */
 
 public enum StoneForm implements StoneProviderEnum {

@@ -2,6 +2,12 @@ package de.slothsoft.tetris.blocks;
 
 import java.awt.Color;
 
+/**
+ * A util class for block factories
+ * 
+ * @since 1.0.0
+ */
+
 public final class BlockUtil {
 
 	private static final int HEXADECIMAL = 16;

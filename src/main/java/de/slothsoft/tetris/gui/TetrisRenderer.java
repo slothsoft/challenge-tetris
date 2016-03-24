@@ -18,6 +18,8 @@ import de.slothsoft.tetris.Stone;
 /**
  * This interface can be used to change how the {@link Board} and {@link Stone}s
  * are being painted
+ * 
+ * @since 1.0.0
  */
 
 public interface TetrisRenderer {

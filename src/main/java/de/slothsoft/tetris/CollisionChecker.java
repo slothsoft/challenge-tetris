@@ -3,6 +3,8 @@ package de.slothsoft.tetris;
 /**
  * Collisions are left and right (e.g. things that don't allow to pass through,
  * but don't make you clonk)
+ * 
+ * @since 1.0.0
  */
 
 public final class CollisionChecker {

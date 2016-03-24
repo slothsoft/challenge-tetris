@@ -13,6 +13,8 @@ import de.slothsoft.tetris.PositionBasedStonePositioner.Position;
 /**
  * Helper class for positioning stones. Just give it something to calculate the
  * score with, and it will do all the magic to find the right position itself
+ * 
+ * @since 1.0.0
  */
 
 public class PositionBuddy {

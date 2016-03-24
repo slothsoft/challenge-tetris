@@ -12,6 +12,8 @@ import de.slothsoft.tetris.contrib.ExampleStonePositioner;
 
 /**
  * Util class for getting and managing {@link StonePositioner}s (hence the name)
+ * 
+ * @since 1.0.0
  */
 
 public final class StonePositioners {

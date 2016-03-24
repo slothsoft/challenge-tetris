@@ -10,6 +10,8 @@ import de.slothsoft.tetris.blocks.FunkyBlock;
 
 /**
  * A {@link TetrisRenderer} that renders all stone as funky stones
+ * 
+ * @since 1.0.0
  */
 
 public class FunkyTetrisRenderer implements TetrisRenderer {

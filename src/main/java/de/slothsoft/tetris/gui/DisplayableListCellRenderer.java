@@ -6,6 +6,14 @@ import java.util.function.Function;
 
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
+import javax.swing.ListCellRenderer;
+
+/**
+ * Just a multi-purpose {@link ListCellRenderer}
+ * 
+ * @since 1.0.0
+ * @param <T> - type of object to be displayed
+ */
 
 class DisplayableListCellRenderer<T> extends DefaultListCellRenderer {
 

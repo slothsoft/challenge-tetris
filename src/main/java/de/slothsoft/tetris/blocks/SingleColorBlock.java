@@ -20,6 +20,8 @@ import de.slothsoft.tetris.Block;
  * XXXXXX
  * }
  * </pre>
+ * 
+ * @since 1.0.0
  */
 
 public final class SingleColorBlock implements Block {

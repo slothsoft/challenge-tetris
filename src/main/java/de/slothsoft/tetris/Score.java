@@ -5,6 +5,8 @@ import java.beans.PropertyChangeSupport;
 
 /**
  * The score of the {@link Game}
+ * 
+ * @since 1.0.0
  */
 
 public final class Score implements Cloneable {

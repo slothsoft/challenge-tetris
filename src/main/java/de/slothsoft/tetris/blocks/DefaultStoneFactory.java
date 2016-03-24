@@ -8,6 +8,8 @@ import de.slothsoft.tetris.StoneFactory;
 
 /**
  * Default stone factories
+ * 
+ * @since 1.0.0
  */
 
 public enum DefaultStoneFactory implements StoneFactory {

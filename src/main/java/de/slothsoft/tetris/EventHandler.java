@@ -7,6 +7,8 @@ import de.slothsoft.tetris.blocks.DefaultStoneFactory;
 
 /**
  * The fundamental class for everything that happens in a Tetris game
+ * 
+ * @since 1.0.0
  */
 
 public final class EventHandler {

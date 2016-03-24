@@ -2,6 +2,8 @@ package de.slothsoft.tetris;
 
 /**
  * Interface used for positioning a stone on the board
+ * 
+ * @since 1.0.0
  */
 
 public interface StonePositioner {
