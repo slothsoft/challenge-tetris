@@ -11,6 +11,10 @@ import javax.swing.JPanel;
 import de.slothsoft.tetris.Block;
 import de.slothsoft.tetris.Board;
 
+/**
+ * A panel to paint a {@link Board} on
+ */
+
 public class BoardPanel extends JPanel {
 
 	private static final long serialVersionUID = -4607180702570402004L;

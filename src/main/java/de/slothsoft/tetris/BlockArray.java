@@ -1,6 +1,5 @@
 package de.slothsoft.tetris;
 
-
 /**
  * A block array is exactly what it says on the tin - a two dimensional array of
  * {@link Block}s

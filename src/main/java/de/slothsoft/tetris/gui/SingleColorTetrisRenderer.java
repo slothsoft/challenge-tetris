@@ -8,13 +8,17 @@ import java.util.Map;
 import de.slothsoft.tetris.Block;
 import de.slothsoft.tetris.blocks.SingleColorBlock;
 
+/**
+ * A {@link TetrisRenderer} that renders all stone as single color stones
+ */
+
 public class SingleColorTetrisRenderer implements TetrisRenderer {
 
 	private final Map<Integer, SingleColorBlock> colors = new HashMap<>();
 
 	@Override
 	public String getDisplayName() {
-		return "Single color Renderer";
+		return "Single Color Renderer";
 	}
 
 	@Override

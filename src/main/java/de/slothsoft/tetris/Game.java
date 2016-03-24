@@ -3,6 +3,10 @@ package de.slothsoft.tetris;
 import java.util.Objects;
 import java.util.function.Consumer;
 
+/**
+ * The game class that holds everything together.
+ */
+
 public class Game {
 
 	private final Thread thread = new Thread(this::run);

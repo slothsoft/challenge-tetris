@@ -7,13 +7,25 @@ import static de.slothsoft.tetris.Board.WIDTH_IN_PIXELS;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.util.Arrays;
+import java.util.List;
 
 import de.slothsoft.tetris.Block;
 import de.slothsoft.tetris.BlockArray;
 import de.slothsoft.tetris.Board;
 import de.slothsoft.tetris.Stone;
 
+/**
+ * This interface can be used to change how the {@link Board} and {@link Stone}s
+ * are being painted
+ */
+
 public interface TetrisRenderer {
+
+	/**
+	 * A default tetris renderer that uses the {@link Stone}'s very own
+	 * <code>paint()</code> method.
+	 */
 
 	TetrisRenderer DEFAULT = new TetrisRenderer() {
 
@@ -27,6 +39,23 @@ public interface TetrisRenderer {
 			block.paint(graphics);
 		}
 	};
+
+	/**
+	 * Returns all implementations of {@link TetrisRenderer} that are available
+	 * for use in the {@link TetrisFrame}
+	 * 
+	 * @return a list of Tetris renderers
+	 */
+
+	public static List<TetrisRenderer> getTetrisRenderers() {
+		return Arrays.asList(DEFAULT, new FunkyTetrisRenderer(), new SingleColorTetrisRenderer());
+	}
+
+	/**
+	 * Returns a display name that should be unique
+	 * 
+	 * @return a unique display name
+	 */
 
 	default String getDisplayName() {
 		return getClass().getSimpleName();
@@ -44,13 +73,13 @@ public interface TetrisRenderer {
 	default void paintBoard(Graphics2D graphics, Board board) {
 		graphics.setStroke(new BasicStroke(BORDER_WIDTH));
 		graphics.setColor(Color.BLACK);
-		graphics.fillRect(-BORDER_WIDTH, -BORDER_WIDTH, WIDTH_IN_PIXELS + 2 * BORDER_WIDTH, HEIGHT_IN_PIXELS + 2
-				* BORDER_WIDTH);
+		graphics.fillRect(-BORDER_WIDTH, -BORDER_WIDTH, WIDTH_IN_PIXELS + 2 * BORDER_WIDTH,
+				HEIGHT_IN_PIXELS + 2 * BORDER_WIDTH);
 
 		graphics.setStroke(new BasicStroke());
 		graphics.setColor(Color.WHITE);
-		graphics.drawRect(-BORDER_WIDTH, -BORDER_WIDTH, WIDTH_IN_PIXELS + 2 * BORDER_WIDTH, HEIGHT_IN_PIXELS + 2
-				* BORDER_WIDTH);
+		graphics.drawRect(-BORDER_WIDTH, -BORDER_WIDTH, WIDTH_IN_PIXELS + 2 * BORDER_WIDTH,
+				HEIGHT_IN_PIXELS + 2 * BORDER_WIDTH);
 
 		paintBlockArray(graphics, board);
 

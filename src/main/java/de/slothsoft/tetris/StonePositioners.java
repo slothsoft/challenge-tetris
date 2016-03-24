@@ -10,11 +10,30 @@ import java.util.List;
 
 import de.slothsoft.tetris.contrib.ExampleStonePositioner;
 
+/**
+ * Util class for getting and managing {@link StonePositioner}s (hence the name)
+ */
+
 public final class StonePositioners {
+
+	/**
+	 * Returns all instances of {@link StonePositioner}s in the
+	 * <code>contrib</code> package.
+	 * 
+	 * @return a list of stone positioners
+	 */
 
 	public static List<StonePositioner> getStonePositioners() {
 		return getStonePositioners(ExampleStonePositioner.class.getPackage());
 	}
+
+	/**
+	 * Returns all instances of {@link StonePositioner}s in a specified package.
+	 * 
+	 * @param searchedPackage
+	 *            - the package to be searched
+	 * @return a list of stone positioners
+	 */
 
 	static List<StonePositioner> getStonePositioners(Package searchedPackage) {
 		try {
@@ -31,6 +50,15 @@ public final class StonePositioners {
 		}
 	}
 
+	/**
+	 * Returns all implementations of {@link StonePositioner}s in a specified
+	 * package.
+	 * 
+	 * @param packageName
+	 *            - the package to be searched
+	 * @return a list of classes
+	 */
+
 	static List<Class<?>> getClasses(String packageName) throws ClassNotFoundException, IOException {
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 		String path = packageName.replace('.', '/');
@@ -45,13 +73,15 @@ public final class StonePositioners {
 
 	private static List<Class<?>> findClasses(File directory, String packageName) throws ClassNotFoundException {
 		List<Class<?>> classes = new ArrayList<>();
-		if (!directory.exists()) return classes;
+		if (!directory.exists())
+			return classes;
 		File[] files = directory.listFiles();
 		for (File file : files) {
 			if (file.isDirectory()) {
 				classes.addAll(findClasses(file, packageName + "." + file.getName()));
 			} else if (file.getName().endsWith(".class")) {
-				classes.add(Class.forName(packageName + '.' + file.getName().substring(0, file.getName().length() - 6)));
+				classes.add(
+						Class.forName(packageName + '.' + file.getName().substring(0, file.getName().length() - 6)));
 			}
 		}
 		return classes;

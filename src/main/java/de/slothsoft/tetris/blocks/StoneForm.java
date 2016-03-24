@@ -3,6 +3,10 @@ package de.slothsoft.tetris.blocks;
 import de.slothsoft.tetris.Block;
 import de.slothsoft.tetris.blocks.DefaultStoneFactory.StoneProviderEnum;
 
+/**
+ * These stones are pretty similar to the default tetris stones
+ */
+
 public enum StoneForm implements StoneProviderEnum {
 	I("00FF00", new boolean[][] { { true, true, true, true } }),
 
