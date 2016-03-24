@@ -14,7 +14,12 @@ public class Tetris {
 	public static final StonePositioner POSITIONER = new ExampleStonePositioner();
 
 	public static void main(String[] args) {
+		TetrisArguments.check(args);
+
 		TetrisFrame tetris = new TetrisFrame();
+		tetris.setStonePositioner(TetrisArguments.getStonePositioner(args, POSITIONER));
+		tetris.setShowSettings(TetrisArguments.isShowSettings(args, true));
+		tetris.setTimePerStone(TetrisArguments.getTimePerStone(args, tetris.getTimePerStone()));
 		tetris.start();
 	}
 

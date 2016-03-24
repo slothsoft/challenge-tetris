@@ -1,5 +1,6 @@
 package de.slothsoft.tetris;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,6 +25,12 @@ public class StonePositionersTest {
 	public void testGetClasses() throws Exception {
 		List<Class<?>> result = StonePositioners.getClasses("de.slothsoft.tetris.contrib1");
 		Assert.assertEquals(Arrays.asList(A.class, B.class, C.class), result);
+	}
+
+	@Test
+	public void testGetClassesUnknownPackage() throws Exception {
+		List<Class<?>> result = StonePositioners.getClasses("de.slothsoft.unknown");
+		Assert.assertEquals(new ArrayList<>(), result);
 	}
 
 	@Test

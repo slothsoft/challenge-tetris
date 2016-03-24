@@ -21,13 +21,14 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.border.TitledBorder;
 
 import de.slothsoft.tetris.Game;
+import de.slothsoft.tetris.Score;
 import de.slothsoft.tetris.StoneFactory;
 import de.slothsoft.tetris.StonePositioner;
 import de.slothsoft.tetris.StonePositioners;
 import de.slothsoft.tetris.blocks.DefaultStoneFactory;
 
 /**
- * A panel to display game settings
+ * A panel to display game settings and {@link Score}
  * 
  * @since 1.0.0
  */
@@ -38,20 +39,31 @@ public class SettingsPanel extends JPanel {
 	private static final Insets INSETS = new Insets(5, 5, 5, 5);
 
 	private final Game game;
+
+	private final Component settingsPanel;
+	private JSpinner waitTime;
+
 	private Consumer<TetrisRenderer> onRendererChanged = r -> System.out.print("");
 
 	public SettingsPanel(Game game) {
 		this.game = game;
 
+		this.settingsPanel = createSettings();
+
 		setLayout(new BorderLayout());
 		add(createScorePanel(), BorderLayout.NORTH);
 		add(createSpanner(), BorderLayout.CENTER);
-		add(createSettings(), BorderLayout.SOUTH);
+		add(settingsPanel, BorderLayout.SOUTH);
 	}
 
 	private Component createScorePanel() {
-		ScorePanel result = new ScorePanel(this.game.getScore());
-		result.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+		JPanel result = new JPanel();
+		result.setLayout(new GridBagLayout());
+		result.setBackground(Color.BLACK);
+
+		result.add(createSpanner(), createControlConstraints(0, 0));
+		result.add(new ScorePanel(this.game.getScore()), createLabelConstraints(1, 0));
+		result.add(createSpanner(), createControlConstraints(2, 0));
 		return result;
 	}
 
@@ -67,7 +79,8 @@ public class SettingsPanel extends JPanel {
 		titleBorder.setTitleColor(Color.WHITE);
 
 		JPanel parent = new JPanel();
-		parent.setBorder(titleBorder);
+		parent.setBorder(
+				BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0, 25, 25, 0), titleBorder));
 		parent.setLayout(new GridBagLayout());
 		parent.setBackground(Color.BLACK);
 
@@ -84,9 +97,9 @@ public class SettingsPanel extends JPanel {
 		parent.add(stonePositioner, createControlConstraints(1, y));
 		y++;
 
-		JSpinner waitTime = new JSpinner();
-		waitTime.setModel(new SpinnerNumberModel(this.game.getTimePerStone(), 0, 10000, 100));
-		waitTime.addChangeListener(e -> this.game.setTimePerStone(((Integer) waitTime.getValue())));
+		this.waitTime = new JSpinner();
+		this.waitTime.setModel(new SpinnerNumberModel(this.game.getTimePerStone(), 0, 10000, 100));
+		this.waitTime.addChangeListener(e -> this.game.setTimePerStone(((Integer) waitTime.getValue())));
 
 		parent.add(createLabel("Delay"), createLabelConstraints(0, y));
 		parent.add(waitTime, createControlConstraints(1, y));
@@ -143,6 +156,33 @@ public class SettingsPanel extends JPanel {
 
 	public void setOnRendererChanged(Consumer<TetrisRenderer> onRendererChanged) {
 		this.onRendererChanged = Objects.requireNonNull(onRendererChanged);
+	}
+
+	public boolean isShowSettings() {
+		return settingsPanel.isVisible();
+	}
+
+	public SettingsPanel showSettings(boolean showSettings) {
+		setShowSettings(showSettings);
+		return this;
+	}
+
+	public void setShowSettings(boolean showSettings) {
+		this.settingsPanel.setVisible(showSettings);
+	}
+
+	public int getTimePerStone() {
+		return this.game.getTimePerStone();
+	}
+
+	public SettingsPanel timePerStone(int newTimePerStone) {
+		setTimePerStone(newTimePerStone);
+		return this;
+	}
+
+	public void setTimePerStone(int waitTime) {
+		this.game.setTimePerStone(waitTime);
+		this.waitTime.setValue(waitTime);
 	}
 
 }

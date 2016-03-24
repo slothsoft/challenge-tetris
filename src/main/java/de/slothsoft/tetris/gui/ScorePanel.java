@@ -7,6 +7,7 @@ import java.text.NumberFormat;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import de.slothsoft.tetris.Score;
 
@@ -27,15 +28,15 @@ public class ScorePanel extends JPanel {
 		setLayout(new GridLayout(3, 2));
 
 		add(createSmallLabel("Stone count:"));
-		JLabel stoneCount = createSmallLabel("0");
+		JLabel stoneCount = createSmallLabel("0", SwingConstants.RIGHT);
 		add(stoneCount);
 
 		add(createSmallLabel("Lines removed:    "));
-		JLabel linesRemoved = createSmallLabel("0");
+		JLabel linesRemoved = createSmallLabel("0", SwingConstants.RIGHT);
 		add(linesRemoved);
 
 		add(createBigLabel("Score"));
-		JLabel totalScore = createBigLabel("0");
+		JLabel totalScore = createBigLabel("0", SwingConstants.RIGHT);
 		add(totalScore);
 
 		score.addPropertyChangeListener(Score.PROP_LINES_REMOVED,
@@ -46,15 +47,23 @@ public class ScorePanel extends JPanel {
 	}
 
 	private JLabel createSmallLabel(String string) {
-		JLabel label = new JLabel(string);
+		return createSmallLabel(string, SwingConstants.LEFT);
+	}
+
+	private JLabel createSmallLabel(String string, int alignment) {
+		JLabel label = new JLabel(string, alignment);
 		label.setForeground(Color.WHITE);
 		return label;
 	}
 
 	private JLabel createBigLabel(String string) {
-		JLabel label = new JLabel(string);
+		return createBigLabel(string, SwingConstants.LEFT);
+	}
+
+	private JLabel createBigLabel(String string, int alignment) {
+		JLabel label = new JLabel(string, alignment);
 		label.setForeground(Color.WHITE);
-		label.setFont(label.getFont().deriveFont(Font.BOLD, 15f));
+		label.setFont(label.getFont().deriveFont(Font.BOLD, 17f));
 		return label;
 	}
 

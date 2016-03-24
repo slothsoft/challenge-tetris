@@ -16,7 +16,7 @@ public class Game {
 	private final Board board = new Board();
 	private final EventHandler eventHandler = new EventHandler(this.board);
 
-	private StonePositioner stonePositioner = Tetris.POSITIONER;
+	private StonePositioner stonePositioner = context -> System.err.println("You need to set the stone positioner!");
 	private boolean stop;
 	private int timePerStone = 500;
 	private int sleepTime = this.timePerStone / Board.WIDTH_IN_BLOCKS;
@@ -66,7 +66,7 @@ public class Game {
 
 	public void setTimePerStone(int waitTime) {
 		this.timePerStone = waitTime;
-		this.sleepTime = this.timePerStone / Board.WIDTH_IN_BLOCKS;
+		this.sleepTime = this.timePerStone / Board.HEIGHT_IN_BLOCKS;
 	}
 
 	public Consumer<Score> getOnGameFinish() {
