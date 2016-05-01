@@ -5,6 +5,12 @@ import java.util.function.Consumer;
 
 import de.slothsoft.tetris.blocks.DefaultStoneFactory;
 
+/**
+ * The fundamental class for everything that happens in a Tetris game
+ * 
+ * @since 1.0.0
+ */
+
 public final class EventHandler {
 
 	private static final int[] SCORING_SYSTEM = { 40, 100, 300, 1200 };
@@ -83,7 +89,8 @@ public final class EventHandler {
 	}
 
 	public void moveCurrentStoneDown() {
-		if (this.board.getCurrentStone() == null) return;
+		if (this.board.getCurrentStone() == null)
+			return;
 		this.board.getCurrentStone().incrementYInBlocks(1);
 		clonkStoneIfNecessary();
 	}

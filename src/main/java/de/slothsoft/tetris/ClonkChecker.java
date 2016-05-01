@@ -3,6 +3,8 @@ package de.slothsoft.tetris;
 /**
  * Clonks are always when the {@link Stone} hits the bottom ({@link Board} or
  * another {@link Block}). A new stone is about to get born after that.
+ * 
+ * @since 1.0.0
  */
 
 public final class ClonkChecker {

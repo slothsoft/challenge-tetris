@@ -1,16 +1,19 @@
 package de.slothsoft.tetris;
 
-
 /**
  * A board is where the entire action plays out
+ * 
+ * @see <a href="https://github.com/slothsoft/tetris-challenge/wiki#basics">
+ *      Basics</a>
+ * @since 1.0.0
  */
 
 public final class Board extends BlockArray {
 
 	public static final int WIDTH_IN_BLOCKS = 10;
-	public static final int WIDTH_IN_PIXELS = WIDTH_IN_BLOCKS * Block.WIDTH;
+	public static final int WIDTH_IN_PIXELS = WIDTH_IN_BLOCKS * Block.WIDTH_IN_PIXELS;
 	public static final int HEIGHT_IN_BLOCKS = 22;
-	public static final int HEIGHT_IN_PIXELS = HEIGHT_IN_BLOCKS * Block.WIDTH;
+	public static final int HEIGHT_IN_PIXELS = HEIGHT_IN_BLOCKS * Block.WIDTH_IN_PIXELS;
 	public static final int BORDER_WIDTH = 2;
 
 	private Stone currentStone;

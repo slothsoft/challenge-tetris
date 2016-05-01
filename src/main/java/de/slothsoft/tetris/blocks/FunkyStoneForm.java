@@ -3,6 +3,15 @@ package de.slothsoft.tetris.blocks;
 import de.slothsoft.tetris.Block;
 import de.slothsoft.tetris.blocks.DefaultStoneFactory.StoneProviderEnum;
 
+/**
+ * These stones are pretty similar to the funky stones in Tritus
+ * 
+ * @see <a href="https://github.com/slothsoft/tetris-challenge/issues/2">
+ *      Feature Request</a>
+ * @since 1.0.0
+ * 
+ */
+
 public enum FunkyStoneForm implements StoneProviderEnum {
 	BIG_L("5555FF", new boolean[][] { { true, true, true, true }, { false, false, false, true } }),
 

@@ -4,8 +4,12 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- * A stone is a moveable collection of {@link Block}s (in contrary to the {@link Board},
- * which is fix)
+ * A stone is a moveable collection of {@link Block}s (in contrary to the
+ * {@link Board}, which is fix)
+ * 
+ * @see <a href="https://github.com/slothsoft/tetris-challenge/wiki#basics">
+ *      Basics</a>
+ * @since 1.0.0
  */
 
 public final class Stone extends BlockArray {
@@ -95,7 +99,7 @@ public final class Stone extends BlockArray {
 	}
 
 	public int getXInPixels() {
-		return this.xInBlocks * Block.WIDTH;
+		return this.xInBlocks * Block.WIDTH_IN_PIXELS;
 	}
 
 	void incrementXInBlocks(int increment) {
@@ -123,7 +127,7 @@ public final class Stone extends BlockArray {
 	}
 
 	public int getYInPixels() {
-		return (int) (this.yInBlocks * Block.HEIGHT);
+		return (int) (this.yInBlocks * Block.HEIGHT_IN_PIXELS);
 	}
 
 	void incrementYInBlocks(double increment) {

@@ -11,6 +11,12 @@ import javax.swing.JPanel;
 import de.slothsoft.tetris.Block;
 import de.slothsoft.tetris.Board;
 
+/**
+ * A panel to paint a {@link Board} on
+ * 
+ * @since 1.0.0
+ */
+
 public class BoardPanel extends JPanel {
 
 	private static final long serialVersionUID = -4607180702570402004L;
@@ -20,6 +26,7 @@ public class BoardPanel extends JPanel {
 	private TetrisRenderer renderer = TetrisRenderer.DEFAULT;
 	private int width;
 	private int height;
+	private double ratio;
 
 	public BoardPanel() {
 		this(null);
@@ -38,9 +45,9 @@ public class BoardPanel extends JPanel {
 		}
 
 		if (this.board != null) {
-			float ratio = (float) Math.min((double) getWidth() / this.width, (double) getHeight() / this.height);
-			((Graphics2D) graphics).scale(ratio, ratio);
-			((Graphics2D) graphics).translate(Block.WIDTH, Block.HEIGHT);
+			this.ratio = (float) Math.min((double) getWidth() / this.width, (double) getHeight() / this.height);
+			((Graphics2D) graphics).scale(this.ratio, this.ratio);
+			((Graphics2D) graphics).translate(Block.WIDTH_IN_PIXELS, Block.HEIGHT_IN_PIXELS);
 			this.renderer.paintBoard((Graphics2D) graphics, this.board);
 		}
 		repaint(REPAINT_IN_MS);
@@ -52,8 +59,8 @@ public class BoardPanel extends JPanel {
 
 	public void setBoard(Board board) {
 		this.board = board;
-		this.width = board == null ? 0 : board.getWidthInPixels() + 2 * Block.WIDTH;
-		this.height = board == null ? 0 : board.getHeightInPixels() + 2 * Block.HEIGHT;
+		this.width = board == null ? 0 : board.getWidthInPixels() + 2 * Block.WIDTH_IN_PIXELS;
+		this.height = board == null ? 0 : board.getHeightInPixels() + 2 * Block.HEIGHT_IN_PIXELS;
 		setPreferredSize(new Dimension(this.width, this.height));
 		repaint();
 	}
@@ -72,4 +79,15 @@ public class BoardPanel extends JPanel {
 
 	}
 
+	public double getRatio() {
+		return this.ratio;
+	}
+
+	public int getPreferredWidth() {
+		return this.width;
+	}
+
+	public int getPreferredHeight() {
+		return this.height;
+	}
 }

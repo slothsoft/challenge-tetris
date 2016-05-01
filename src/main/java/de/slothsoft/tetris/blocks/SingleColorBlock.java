@@ -20,13 +20,15 @@ import de.slothsoft.tetris.Block;
  * XXXXXX
  * }
  * </pre>
+ * 
+ * @since 1.0.0
  */
 
 public final class SingleColorBlock implements Block {
 
-	private static final Shape LIGHT_TRIANGLE = new Polygon(new int[] { 0, WIDTH, 0 }, new int[] { 0, 0, HEIGHT }, 3);
-	private static final Shape DARK_TRIANGLE = new Polygon(new int[] { 0, WIDTH, WIDTH },
-			new int[] { HEIGHT, 0, HEIGHT }, 3);
+	private static final Shape LIGHT_TRIANGLE = new Polygon(new int[] { 0, WIDTH_IN_PIXELS, 0 }, new int[] { 0, 0, HEIGHT_IN_PIXELS }, 3);
+	private static final Shape DARK_TRIANGLE = new Polygon(new int[] { 0, WIDTH_IN_PIXELS, WIDTH_IN_PIXELS },
+			new int[] { HEIGHT_IN_PIXELS, 0, HEIGHT_IN_PIXELS }, 3);
 
 	private final Color color;
 	private final Color lightColor;
@@ -46,7 +48,7 @@ public final class SingleColorBlock implements Block {
 		graphics.setColor(this.darkColor);
 		graphics.fill(DARK_TRIANGLE);
 
-		int oneThird = WIDTH / 3;
+		int oneThird = WIDTH_IN_PIXELS / 3;
 		graphics.setColor(this.color);
 		graphics.fillRect(oneThird, oneThird, oneThird, oneThird);
 	}

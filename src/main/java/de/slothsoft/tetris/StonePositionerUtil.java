@@ -1,5 +1,11 @@
 package de.slothsoft.tetris;
 
+/**
+ * Util class for calculating stuff to get a good stone position
+ * 
+ * @since 1.0.0
+ */
+
 public final class StonePositionerUtil {
 
 	/**
@@ -10,7 +16,8 @@ public final class StonePositionerUtil {
 		int stoneHeight = stone.getHeightInBlocks();
 		int maxY = Board.HEIGHT_IN_BLOCKS - stoneHeight;
 		for (int y = 0; y <= maxY; y++) {
-			if (isStoneBlocked(blocks, stone, blockX, y)) return y - 1;
+			if (isStoneBlocked(blocks, stone, blockX, y))
+				return y - 1;
 		}
 		return maxY;
 	}
@@ -20,7 +27,8 @@ public final class StonePositionerUtil {
 
 		for (int x = 0; x < stone.getWidthInBlocks(); x++) {
 			for (int y = 0; y < stone.getHeightInBlocks(); y++) {
-				if (blocks[x + blockX][y + blockY] != null && stoneBlocks[x][y] != null) return true;
+				if (blocks[x + blockX][y + blockY] != null && stoneBlocks[x][y] != null)
+					return true;
 			}
 		}
 		return false;
@@ -71,7 +79,8 @@ public final class StonePositionerUtil {
 	public static int getLastYOfStone(Stone stone, int x) {
 		int height = stone.getHeightInBlocks();
 		for (int y = height - 1; y >= 0; y--) {
-			if (stone.getBlock(x, y) != null) return y + 1;
+			if (stone.getBlock(x, y) != null)
+				return y + 1;
 		}
 		return 0;
 	}

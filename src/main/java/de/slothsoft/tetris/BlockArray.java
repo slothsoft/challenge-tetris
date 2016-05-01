@@ -1,9 +1,10 @@
 package de.slothsoft.tetris;
 
-
 /**
  * A block array is exactly what it says on the tin - a two dimensional array of
  * {@link Block}s
+ * 
+ * @since 1.0.0
  */
 
 public class BlockArray implements Cloneable {
@@ -88,11 +89,11 @@ public class BlockArray implements Cloneable {
 	}
 
 	public int getWidthInPixels() {
-		return this.widthInBlocks * Block.WIDTH;
+		return this.widthInBlocks * Block.WIDTH_IN_PIXELS;
 	}
 
 	public int getHeightInPixels() {
-		return this.heightInBlocks * Block.HEIGHT;
+		return this.heightInBlocks * Block.HEIGHT_IN_PIXELS;
 	}
 
 	final void setBlocks(Block[][] blocks) {

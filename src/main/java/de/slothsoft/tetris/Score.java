@@ -3,6 +3,12 @@ package de.slothsoft.tetris;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
+/**
+ * The score of the {@link Game}
+ * 
+ * @since 1.0.0
+ */
+
 public final class Score implements Cloneable {
 
 	public static final String PROP_STONE_COUNT = "stoneCount";
@@ -79,8 +85,9 @@ public final class Score implements Cloneable {
 	}
 
 	public String toString(boolean verbos) {
-		if (verbos) return "Score: \n\tstoneCount\t= " + this.stoneCount + "\n\tlinesRemoved\t= " + this.linesRemoved
-				+ "\n\tscore\t\t= " + this.score;
+		if (verbos)
+			return "Score: \n\tstoneCount\t= " + this.stoneCount + "\n\tlinesRemoved\t= " + this.linesRemoved
+					+ "\n\tscore\t\t= " + this.score;
 		return "Scoret=" + this.stoneCount + ", linesRemoved=" + this.linesRemoved + ", score=" + this.score + "]";
 	}
 

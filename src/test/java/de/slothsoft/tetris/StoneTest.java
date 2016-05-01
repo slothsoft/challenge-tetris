@@ -42,7 +42,7 @@ public class StoneTest {
 		Stone stone = createStone(3, 2);
 
 		Assert.assertEquals(3, stone.getWidthInBlocks());
-		Assert.assertEquals(3 * Block.WIDTH, stone.getWidthInPixels());
+		Assert.assertEquals(3 * Block.WIDTH_IN_PIXELS, stone.getWidthInPixels());
 	}
 
 	@Test
@@ -50,7 +50,7 @@ public class StoneTest {
 		Stone stone = createStone(3, 2);
 
 		Assert.assertEquals(2, stone.getHeightInBlocks());
-		Assert.assertEquals(2 * Block.HEIGHT, stone.getHeightInPixels());
+		Assert.assertEquals(2 * Block.HEIGHT_IN_PIXELS, stone.getHeightInPixels());
 	}
 
 	@Test

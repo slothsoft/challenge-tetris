@@ -7,8 +7,10 @@ import java.util.function.Consumer;
 import de.slothsoft.tetris.blocks.DefaultStoneFactory;
 
 /**
- * This class starts a bunch of games without any GUI to see how the AI performs in the
- * long run
+ * This class starts a bunch of games without any GUI to see how the AI performs
+ * in the long run
+ * 
+ * @since 1.0.0
  */
 
 public class TetrisBatch {
@@ -16,7 +18,7 @@ public class TetrisBatch {
 	private static final StonePositioner POSITIONER = Tetris.POSITIONER;
 	private static final int THREADS = 4;
 	private static final int NUMBER_OF_ROUNDS = 1000;
-	private static final StoneFactory STONE_FACTORY = DefaultStoneFactory.FUNKY;
+	private static final StoneFactory STONE_FACTORY = DefaultStoneFactory.DEFAULT;
 
 	public static void main(String[] args) throws Exception {
 		TetrisBatch batch = new TetrisBatch(POSITIONER);
@@ -28,8 +30,10 @@ public class TetrisBatch {
 	}
 
 	private static void onRoundFinished(Game game, Score score, int finishedRounds) {
-//		final String STRING_FORMAT = "%0" + String.valueOf(NUMBER_OF_ROUNDS).length() + "d";
-//		System.out.println(String.format(STRING_FORMAT, finishedRounds) + ' ' + score.toString());
+		// final String STRING_FORMAT = "%0" +
+		// String.valueOf(NUMBER_OF_ROUNDS).length() + "d";
+		// System.out.println(String.format(STRING_FORMAT, finishedRounds) + ' '
+		// + score.toString());
 		if (finishedRounds > 0 && (finishedRounds % (NUMBER_OF_ROUNDS / 10) == 0)) {
 			System.out.println(finishedRounds + " rounds finished.");
 		}
