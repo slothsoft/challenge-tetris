@@ -14,7 +14,7 @@ public class SingleColorTetrisRenderer implements TetrisRenderer {
 
 	@Override
 	public String getDisplayName() {
-		return "Single color Renderer";
+		return "Single Color Renderer";
 	}
 
 	@Override

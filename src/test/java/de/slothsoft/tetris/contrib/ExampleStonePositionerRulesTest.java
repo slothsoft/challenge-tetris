@@ -13,6 +13,10 @@ import de.slothsoft.tetris.blocks.StoneForm;
 
 /**
  * This class tests the rule methods (which are added with varying ratio to a total score)
+ *
+ * @author Slothsoft &lt;admin@slothsoft.de&gt;
+ * @since 2016-01-05
+ * @version 1.0.0
  */
 
 public class ExampleStonePositionerRulesTest {

@@ -9,18 +9,24 @@ import de.slothsoft.tetris.Block;
 import de.slothsoft.tetris.Board;
 import de.slothsoft.tetris.EventHandler;
 import de.slothsoft.tetris.Game.StonePositionerContext;
-import de.slothsoft.tetris.blocks.SingleColorBlock;
-import de.slothsoft.tetris.blocks.StoneForm;
 import de.slothsoft.tetris.Stone;
 import de.slothsoft.tetris.StonePositioner;
+import de.slothsoft.tetris.blocks.SingleColorBlock;
+import de.slothsoft.tetris.blocks.StoneForm;
+
+/**
+ * We test some clear cases here
+ *
+ * @author Slothsoft &lt;admin@slothsoft.de&gt;
+ * @since 2016-01-05
+ * @version 1.0.0
+ */
 
 public class ExampleStonePositionerTest {
 
 	private final StonePositioner positioner = new ExampleStonePositioner();
 
 	private final Board board = new Board();
-
-	// we test some clear cases here
 
 	@Test
 	public void testPoleInTheHoleRight() {

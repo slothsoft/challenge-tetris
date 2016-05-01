@@ -41,7 +41,7 @@ public class StonePositionersTest {
 	@Test
 	public void testGetDefaultPositioners() throws Exception {
 		List<StonePositioner> result = StonePositioners.getStonePositioners();
-		Assert.assertEquals(Arrays.asList(new ExampleStonePositioner()), result);
+		Assert.assertTrue("The example is missing: " + result, result.contains(new ExampleStonePositioner()));
 	}
 
 }
