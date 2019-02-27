@@ -1,4 +1,4 @@
-#  [Tetris](https://github.com/slothsoft/challenge-tetris/wiki)
+#  [Tetris Challenge](https://github.com/slothsoft/challenge-tetris/wiki)
 
 - **Author:** [Stef Schulz](mailto:s.schulz@slothsoft.de)
 - **Repository:** <https://github.com/slothsoft/challenge-tetris>
