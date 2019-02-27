@@ -3,7 +3,7 @@ package de.slothsoft.tetris;
 /**
  * A board is where the entire action plays out
  * 
- * @see <a href="https://github.com/slothsoft/tetris-challenge/wiki#basics">
+ * @see <a href="https://github.com/slothsoft/challenge-tetris/wiki#basics">
  *      Basics</a>
  * @since 1.0.0
  */

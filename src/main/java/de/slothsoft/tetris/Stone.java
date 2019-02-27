@@ -7,7 +7,7 @@ import java.util.Objects;
  * A stone is a moveable collection of {@link Block}s (in contrary to the
  * {@link Board}, which is fix)
  * 
- * @see <a href="https://github.com/slothsoft/tetris-challenge/wiki#basics">
+ * @see <a href="https://github.com/slothsoft/challenge-tetris/wiki#basics">
  *      Basics</a>
  * @since 1.0.0
  */

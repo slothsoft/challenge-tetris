@@ -8,7 +8,7 @@ import de.slothsoft.tetris.Block;
 /**
  * These blocks are pretty similar to the funky blocks in Tritus
  * 
- * @see <a href="https://github.com/slothsoft/tetris-challenge/issues/2">
+ * @see <a href="https://github.com/slothsoft/challenge-tetris/issues/2">
  *      Feature Request</a>
  * @since 1.0.0
  */

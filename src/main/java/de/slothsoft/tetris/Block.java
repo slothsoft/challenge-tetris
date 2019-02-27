@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
  * The block is the smallest unit of a Tetris board. Both {@link Board}s and
  * {@link Stone}s are made from them.
  * 
- * @see <a href="https://github.com/slothsoft/tetris-challenge/wiki#basics">
+ * @see <a href="https://github.com/slothsoft/challenge-tetris/wiki#basics">
  *      Basics</a>
  * @since 1.0.0
  */
