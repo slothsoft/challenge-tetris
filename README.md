@@ -9,7 +9,7 @@
 The Tetris project is exactly what it says on the tin - a couple of classes to create a simple Tetris GUI which allows for anyone to create their own AI (artificial intelligence). Well, maybe not anyone, you need at least a basic understanding on how to program.
 
 
-[[https://github.com/slothsoft/tetris-challenge/wiki/tetris_overview.png]]
+![Tetris](https://github.com/slothsoft/tetris-challenge/wiki/tetris_overview.png)
 
 **Content of the wiki:**
 
