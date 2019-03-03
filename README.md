@@ -1,5 +1,7 @@
 #  [Tetris Challenge](https://github.com/slothsoft/challenge-tetris/wiki)
 
+[![Build Status](https://travis-ci.org/slothsoft/challenge-tetris.svg?branch=master)](https://travis-ci.org/slothsoft/challenge-tetris)
+
 - **Author:** [Stef Schulz](mailto:s.schulz@slothsoft.de)
 - **Repository:** <https://github.com/slothsoft/challenge-tetris>
 - **Open Issues:** <https://github.com/slothsoft/challenge-tetris/issues>
